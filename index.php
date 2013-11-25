@@ -3,8 +3,17 @@
 	
 	$db = new db;
 	
-	$contents = $db->select('contents',NULL,'order by `contents`.`id` desc limit 0,5','*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+	//分页
+	$all_nm =  $db->select('contents',NULL,NULL,'count(id)');
+	$all_nm = $all_nm[0]['count(id)'];
+	$limit = 5;
+	$page = isset($_GET['page']) ? $_GET['page'] : 1;
+	$page = new page($all_nm,$limit,'index.php',$page);
 	
+	//获取数据
+	$contents = $db->select('contents',NULL,'order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+	
+	//获取关键字
 	$key_words = $db->select('key_words');
 	
 ?>
@@ -45,6 +54,10 @@
     <br />
 <?php } ?>
 
+<?php
+	//分页
+	echo $page->get_page();
+?>
 
 关键字
 <p>
