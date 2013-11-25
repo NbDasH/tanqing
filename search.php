@@ -15,14 +15,15 @@
 	if($event == 'key_word'){
 		$contents = $db->select('contents',a(a('contents`.`key_words','LIKE','%'.$search.'%')),'order by `contents`.`id` desc','*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
 		foreach($contents as $k => $v){
-			$contents[$k]['key_words'] = str_replace($search,'<span style="color:red">'.$search.'</span>',$v['key_words']);
+			$contents[$k]['key_words'] = preg_replace('/('.$search.')/i','<span style="color:red">'.$search.'</span>',$v['key_words']);
 		}
-	}else{
-		$contents = $db->select('contents',NULL,'order by `contents`.`id` desc','*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+	}elseif($event == 'search'){
+		$contents = $db->select('contents',NULL,'where `contents`.`content` LIKE "%'.$search.'%" or `contents`.`title` LIKE "%'.$search.'%" order by `contents`.`id` desc','*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+		foreach($contents as $k => $v){
+			$contents[$k]['title'] = preg_replace('/('.$search.')/i','<span style="color:red">$1</span>',$v['title']);
+			$contents[$k]['content'] = preg_replace('/('.$search.')/i','<span style="color:red">$1</span>',$v['content']);
+		}
 	}
-	
-	
-	
 	
 	$key_words = $db->select('key_words');
 	

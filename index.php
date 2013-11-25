@@ -17,6 +17,13 @@
 
 <body>
 
+<form action="search.php" method="get">
+	<input type="hidden" name="event" value="search" />
+	<input type="text" name="search" />
+    <input type="submit" />
+</form>
+
+
 <?php foreach($contents as $v){ ?>
     <h3>
         <?php echo "<a href='show.php?id=".$v['c_id']."'>".$v['title']."</a>"; ?>
