@@ -39,7 +39,23 @@
 		}
 		
 		function get_page_url($page){
-			return $this->url.'?page='.$page;
+			
+			$url_arr = explode('?',$this->url);
+			
+			$data = '';
+			
+			if(count($url_arr) > 1){
+				$params = explode('&',$url_arr[1]);
+				foreach($params as $v){
+					if(!empty($v)){
+						$data .= $v.'&';
+					}
+				}
+			}
+			
+			$url = $url_arr[0].'?'.$data.'page='.$page;
+			
+			return $url;
 		}
 		
 		function get_mid_link(){

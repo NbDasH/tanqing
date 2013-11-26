@@ -7,21 +7,38 @@
 		$event = $_GET['event'];
 		$search = $_GET['search'];
 	}else{
-		jump('index.php');	
+		jump('index.php');
 	}
 	
 	$db = new db;
+	$limit = 5;
+	$page = isset($_GET['page']) ? $_GET['page'] : 1;
 	
+	//判断搜索类型
 	if($event == 'key_word'){
-		$contents = $db->select('contents',a(a('contents`.`key_words','LIKE','%'.$search.'%')),'order by `contents`.`id` desc','*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+		//分页
+		$all_nm =  $db->select('contents',a(a('contents`.`key_words','LIKE','%'.$search.'%')),'order by `contents`.`id` desc','count(id)');
+		$all_nm = $all_nm[0]['count(id)'];
+		$page = new page($all_nm,$limit,'search.php?event='.$event.'&search='.$search,$page);
+		
+		//数据获取
+		$contents = $db->select('contents',a(a('contents`.`key_words','LIKE','%'.$search.'%')),'order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+		//高亮
 		foreach($contents as $k => $v){
 			$contents[$k]['key_words'] = preg_replace('/('.$search.')/i','<span style="color:red">'.$search.'</span>',$v['key_words']);
 		}
 	}elseif($event == 'search'){
-		$contents = $db->select('contents',NULL,'where `contents`.`content` LIKE "%'.$search.'%" or `contents`.`title` LIKE "%'.$search.'%" order by `contents`.`id` desc','*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+		//分页
+		$all_nm =  $db->select('contents',NULL,'where `contents`.`content` LIKE "%'.$search.'%" or `contents`.`title` LIKE "%'.$search.'%" order by `contents`.`id` desc','count(id)');
+		$all_nm = $all_nm[0]['count(id)'];
+		$page = new page($all_nm,$limit,'search.php?event='.$event.'&search='.$search,$page);
+		
+		//数据获取
+		$contents = $db->select('contents',NULL,'where `contents`.`content` LIKE "%'.$search.'%" or `contents`.`title` LIKE "%'.$search.'%" order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+		//高亮
 		foreach($contents as $k => $v){
 			$contents[$k]['title'] = preg_replace('/('.$search.')/i','<span style="color:red">$1</span>',$v['title']);
-			$contents[$k]['content'] = preg_replace('/('.$search.')/i','<span style="color:red">$1</span>',$v['content']);
+			$contents[$k]['content'] = preg_replace('/('.$search.')/i','<span style="color:red">$1</span>',strip_tags($v['content']));
 		}
 	}
 	
@@ -58,7 +75,10 @@
     <br />
 <?php } ?>
 
-
+<?php
+	//分页
+	echo $page->get_page();
+?>
 
 关键字
 <p>

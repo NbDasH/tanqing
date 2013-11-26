@@ -18,12 +18,14 @@
     //上传配置
     $config = array(
         "savePath" => ($path == "1" ? "upload/" : "upload1/"),
-        "maxSize" => 1000, //单位KB
+        "maxSize" => 10000, //单位KB
         "allowFiles" => array(".gif", ".png", ".jpg", ".jpeg", ".bmp")
     );
 
     //生成上传实例对象并完成上传
     $up = new Uploader("upfile", $config);
+	
+	
 
     /**
      * 得到上传文件所对应的各个参数,数组结构
@@ -37,6 +39,8 @@
      * )
      */
     $info = $up->getFileInfo();
+	
+	
 
     /**
      * 向浏览器返回数据json数据
@@ -48,4 +52,10 @@
      * }
      */
     echo "{'url':'" . $info["url"] . "','title':'" . $title . "','original':'" . $info["originalName"] . "','state':'" . $info["state"] . "'}";
+	
+	require_once('resizeimage.php');
+	
+	$url_arr = explode('.',$info["url"]);
+	new resizeimage($info["url"], "680", "1", "0",$url_arr[0].'_small.'.$url_arr[1]);
+	new resizeimage($info["url"], "320", "1", "0",$url_arr[0].'_phone.'.$url_arr[1]);
 

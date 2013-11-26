@@ -37,8 +37,11 @@
     <h3>
         <?php echo "<a href='show.php?id=".$v['c_id']."'>".$v['title']."</a>"; ?>
     </h3>
+    <div>
+       <img src="<?php echo get_small(get_imgsrc($v['content'])); ?>" />
+    </div>
     <div style="height:500px; overflow:hidden;">
-        <?php echo $v['content']; ?>
+        <?php echo strip_tags($v['content']); ?>
     </div>
     <div>
         <?php 

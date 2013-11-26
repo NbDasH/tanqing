@@ -221,12 +221,13 @@ UE.I18N['zh-cn'] = {
         'noUploadImage':"当前未上传过任何图片！",
         'toggleSelect':"单击可切换选中状态\n原图尺寸: "
     },
+	
     //===============dialog i18N=======================
     'insertimage':{
         'static':{
             lang_tab_remote:"远程图片", //节点
             lang_tab_local:"本地上传",
-            lang_tab_imgManager:"在线管理",
+            lang_tab_imgManager:"上传历史",
             lang_tab_imgSearch:"图片搜索",
             lang_input_url:"地 址：",
             lang_input_width:"宽 度：",
@@ -262,6 +263,8 @@ UE.I18N['zh-cn'] = {
         'floatCenter':"居中",
         'flashI18n':{} //留空默认中文
     },
+	
+	
     'webapp':{
         tip1:"本功能由百度APP提供，如看到此页面，请各位站长首先申请百度APPKey!",
         tip2:"申请完成之后请至ueditor.config.js中配置获得的appkey! ",

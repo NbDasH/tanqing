@@ -64,4 +64,15 @@
 			exit();
 		}
 	}
+	
+	function get_imgsrc($content){
+		$strr= preg_match('/<img.+src=\"?(.+\.(jpg|gif|bmp|bnp|png))?\" .+>/i',$content,$matches);
+		return $matches["1"];
+	}
+	
+	function get_small($url){
+		$name = explode('.',$url);
+		return $name[0].'_small.'.$name[1];
+	}
+	
 ?>
