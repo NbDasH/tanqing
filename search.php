@@ -2,7 +2,7 @@
 	require_once('config/config.php');
 	
 		
-	$event_arr = a('key_word','search');
+	$event_arr = array('key_word','search');
 	if(isset($_GET['event']) && in_array($_GET['event'],$event_arr) && isset($_GET['search'])){
 		$event = $_GET['event'];
 		$search = $_GET['search'];
@@ -17,12 +17,12 @@
 	//判断搜索类型
 	if($event == 'key_word'){
 		//分页
-		$all_nm =  $db->select('contents',a(a('contents`.`key_words','LIKE','%'.$search.'%')),'order by `contents`.`id` desc','count(id)');
+		$all_nm =  $db->select('contents',array(array('contents`.`key_words','LIKE','%,'.$search.',%')),'order by `contents`.`id` desc','count(id)');
 		$all_nm = $all_nm[0]['count(id)'];
 		$page = new page($all_nm,$limit,'search.php?event='.$event.'&search='.$search,$page);
 		
 		//数据获取
-		$contents = $db->select('contents',a(a('contents`.`key_words','LIKE','%'.$search.'%')),'order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+		$contents = $db->select('contents',array(array('contents`.`key_words','LIKE','%'.$search.'%')),'order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
 		//高亮
 		foreach($contents as $k => $v){
 			$contents[$k]['key_words'] = preg_replace('/('.$search.')/i','<span style="color:red">'.$search.'</span>',$v['key_words']);

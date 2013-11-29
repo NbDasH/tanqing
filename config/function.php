@@ -31,7 +31,7 @@
 		
 		foreach($key_word_arr as $v){
 			if(!empty($v)){
-				$key_word .= $v.',';
+				$key_word .= ','.$v;
 				$search = $db->select('key_words',array('key_word'=>$v));
 				if(empty($search)){
 					$db->insert('key_words',array('key_word'=>$v));
@@ -39,13 +39,24 @@
 			}
 		}
 		
-		return substr($key_word,0,-1);
+		if(!empty($key_word)){
+			return $key_word.',';
+		}else{
+			return $key_word;
+		}
+		
 	}
 	
 	//格式化首页关键字链接
 	function key_word_encode($key_words){
-		$key_word = '';
-		return $key_word_arr = explode(',',$key_words);
+		$key_words = substr($key_words,1,-1);
+		
+		if(!empty($key_words)){
+			return explode(',',$key_words);
+		}else{
+			return array();
+		}
+		
 	}
 	
 	//判断登陆
@@ -73,6 +84,11 @@
 	function get_small($url){
 		$name = explode('.',$url);
 		return $name[0].'_small.'.$name[1];
+	}
+	
+	function get_phone($url){
+		$name = explode('.',$url);
+		return $name[0].'_phone.'.$name[1];
 	}
 	
 ?>

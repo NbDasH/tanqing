@@ -14,7 +14,7 @@
 	$contents = $db->select('contents',NULL,'order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
 	
 	//获取关键字
-	$key_words = $db->select('key_words');
+	$key_words = $db->select('key_words',NULL,'order by weight desc limit 0,20');
 	
 ?>
 <!doctype html>
@@ -40,7 +40,7 @@
     <div>
        <img src="<?php echo get_small(get_imgsrc($v['content'])); ?>" />
     </div>
-    <div style="height:500px; overflow:hidden;">
+    <div>
         <?php echo strip_tags($v['content']); ?>
     </div>
     <div>
