@@ -14,62 +14,82 @@
 	$contents = $db->select('contents',NULL,'order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
 	
 	//获取关键字
-	$key_words = $db->select('key_words',NULL,'order by weight desc limit 0,20');
+	$key_words = $db->select('key_words',NULL,'order by click_rate desc limit 0,20');
 	
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>无标题文档</title>
-</head>
+<?php include('header.php'); ?>
+<?php include('banner.php'); ?>
 
-<body>
+<div class="content clearfix">
+	<div class="warp">
+    	<div class="main left">
+        	<ul class="article">
+            
+            
+            
+			<?php foreach($contents as $v){ ?>
+                            <li>
+                                    <img src="img/t.png" class="img1">
+                                    <h4><?php echo "<a href='show.php?id=".$v['c_id']."'>".$v['title']."</a>"; ?></h4>
+                                    <h6>自： Yann 2013-11-25</h6>
+                                    <img src="<?php echo get_small(get_imgsrc($v['content'])); ?>" class="img2" >
+                                    <ul class="tag">
+                                    <?php 
+                                    foreach(key_word_encode($v['key_words']) as $v2){
+                                        echo '<li><a href="search.php?event=key_word&amp;search='.$v2.'">'.$v2.'</a> | </li>';
+                                    }
+                                    ?>
+                                    </ul>
+                                    <p><?php echo strip_tags($v['content']); ?></p>
+            
+                                    
+                            </li>
+            <?php } ?>
+                
+                
+                
+                
+              
+            </ul>
+            
+         <?php
+		//分页
+		echo $page->get_page();
+		?>
+        </div>
+        <div class="sidebar right">
+        	<div class="about">
+            	<h3>关于我们(About)</h3>
+                <ul class="share">
+                	<li><a href="#" class="s1"></a></li>
+                    <li><a href="#" class="s2"></a></li>
+                    <li><a href="#" class="s3"></a></li>
+                    <li><a href="#" class="s4"></a></li>
+                </ul>
+                
+            </div>
+            <div class="ad"><img src="img/ad.jpg"></div>
+            <div class="search">
+            	<form action="search.php" method="get">
+                	<input type="hidden" name="event" value="search" />
+                	<input type="text" name="search" class="text" value="输入文章关键子">
+                    <input type="submit" class="btn" value="查">
+                </form>
+            </div>
+            <div class="tags">
+            	<h4>热门标签：</h4>
 
-<form action="search.php" method="get">
-	<input type="hidden" name="event" value="search" />
-	<input type="text" name="search" />
-    <input type="submit" />
-</form>
-
-
-<?php foreach($contents as $v){ ?>
-    <h3>
-        <?php echo "<a href='show.php?id=".$v['c_id']."'>".$v['title']."</a>"; ?>
-    </h3>
-    <div>
-       <img src="<?php echo get_small(get_imgsrc($v['content'])); ?>" />
+                <?php
+				foreach($key_words as $v){
+					echo "<li><a href='search.php?event=key_word&amp;search=".$v['key_word']."'>".$v['key_word']."</a></li>";
+				}
+				?>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div>
-        <?php echo strip_tags($v['content']); ?>
-    </div>
-    <div>
-        <?php 
-        foreach(key_word_encode($v['key_words']) as $v){
-            echo "<a href='search.php?event=key_word&amp;search=$v'>$v</a> | ";
-        }
-        ?>
-    </div>
-    
-    <br />
-    <br />
-    <br />
-    <br />
-<?php } ?>
+</div>	
 
-<?php
-	//分页
-	echo $page->get_page();
-?>
 
-关键字
-<p>
-	<?php
-		foreach($key_words as $v){
-			echo "<a href='search.php?event=key_word&amp;search=".$v['key_word']."'>".$v['key_word']."</a> | ";
-		}
-	?>
-</p>
 
-</body>
-</html>
+<?php include('footer.php');
