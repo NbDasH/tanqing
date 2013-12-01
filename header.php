@@ -12,9 +12,11 @@
 </head>
 <body>
 <div class="header">
+	
 	<div class="warp">
-    	<a href="#" class="back left">返回首页</a>
+    	<a href="index.php" class="back left">返回首页</a>
         <a href="#" class="top right"></a>     
     	<h1>明园艺术视野</h1>
     </div>
 </div>	
+

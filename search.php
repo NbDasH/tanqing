@@ -41,53 +41,42 @@
 			$contents[$k]['content'] = preg_replace('/('.$search.')/i','<span style="color:red">$1</span>',strip_tags($v['content']));
 		}
 	}
-	
-	$key_words = $db->select('key_words');
+
 	
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>无标题文档</title>
-</head>
-
-<body>
-
-<?php foreach($contents as $v){ ?>
-    <h3>
-        <?php echo "<a href='show.php?id=".$v['c_id']."'>".$v['title']."</a>"; ?>
-    </h3>
-    <div style="height:500px; overflow:hidden;">
-        <?php echo $v['content']; ?>
-    </div>
-    <div>
-        <?php 
-        foreach(key_word_encode($v['key_words']) as $v){
-            echo "<a href='search.php?event=key_word&amp;search=$v'>$v</a> | ";
-        }
+<?php include('header.php'); ?>
+<?php include('banner.php'); ?>
+<div class="content clearfix">
+	<div class="warp">
+    	<div class="main left">
+             <ul class="article">
+			<?php foreach($contents as $v){ ?>
+                            <li>
+                                    <img src="img/t.png" class="img1">
+                                    <h4><?php echo "<a href='show.php?id=".$v['c_id']."'>".$v['title']."</a>"; ?></h4>
+                                    <h6>自： Yann 2013-11-25</h6>
+                                    <img src="<?php echo get_small(get_imgsrc($v['content'])); ?>" class="img2" >
+                                    <ul class="tag">
+                                    <?php 
+                                    foreach(key_word_encode($v['key_words']) as $v2){
+                                        echo '<li><a href="search.php?event=key_word&amp;search='.$v2.'">'.$v2.'</a> | </li>';
+                                    }
+                                    ?>
+                                    </ul>
+                                    <p><?php echo strip_tags($v['content']); ?></p>
+            
+                                    
+                            </li>
+            <?php } ?>
+            </ul>            
+        
+        <?php
+            //分页
+            echo $page->get_page();
         ?>
-    </div>
-    
-    <br />
-    <br />
-    <br />
-    <br />
-<?php } ?>
-
-<?php
-	//分页
-	echo $page->get_page();
-?>
-
-关键字
-<p>
-	<?php
-		foreach($key_words as $v){
-			echo "<a href='search.php?event=key_word&amp;search=".$v['key_word']."'>".$v['key_word']."</a> | ";
-		}
-	?>
-</p>
-
-</body>
-</html>
+        
+        </div><!--left end-->
+         <?php include('sidebar.php'); ?>
+    </div><!--warp end-->
+</div><!--content end-->
+<?php include('footer.php'); ?>

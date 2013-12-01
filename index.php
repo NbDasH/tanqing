@@ -12,9 +12,7 @@
 	
 	//获取数据
 	$contents = $db->select('contents',NULL,'order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
-	
-	//获取关键字
-	$key_words = $db->select('key_words',NULL,'order by click_rate desc limit 0,20');
+
 	
 ?>
 <?php include('header.php'); ?>
@@ -24,9 +22,6 @@
 	<div class="warp">
     	<div class="main left">
         	<ul class="article">
-            
-            
-            
 			<?php foreach($contents as $v){ ?>
                             <li>
                                     <img src="img/t.png" class="img1">
@@ -45,11 +40,6 @@
                                     
                             </li>
             <?php } ?>
-                
-                
-                
-                
-              
             </ul>
             
          <?php
@@ -57,39 +47,10 @@
 		echo $page->get_page();
 		?>
         </div>
-        <div class="sidebar right">
-        	<div class="about">
-            	<h3>关于我们(About)</h3>
-                <ul class="share">
-                	<li><a href="#" class="s1"></a></li>
-                    <li><a href="#" class="s2"></a></li>
-                    <li><a href="#" class="s3"></a></li>
-                    <li><a href="#" class="s4"></a></li>
-                </ul>
-                
-            </div>
-            <div class="ad"><img src="img/ad.jpg"></div>
-            <div class="search">
-            	<form action="search.php" method="get">
-                	<input type="hidden" name="event" value="search" />
-                	<input type="text" name="search" class="text" value="输入文章关键子">
-                    <input type="submit" class="btn" value="查">
-                </form>
-            </div>
-            <div class="tags">
-            	<h4>热门标签：</h4>
-
-                <?php
-				foreach($key_words as $v){
-					echo "<li><a href='search.php?event=key_word&amp;search=".$v['key_word']."'>".$v['key_word']."</a></li>";
-				}
-				?>
-                </ul>
-            </div>
-        </div>
+       <?php include('sidebar.php'); ?>
     </div>
-</div>	
+</div>
 
 
 
-<?php include('footer.php');
+<?php include('footer.php'); ?>

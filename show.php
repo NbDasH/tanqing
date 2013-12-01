@@ -33,38 +33,36 @@
 	
 	//读取留言 -- 当前未查询用户全匿名评论
 	$messages = $db->select('messages',array('content_id'=>$id));
+	
+	
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>无标题文档</title>
-</head>
+<?php include('header.php'); ?>
+<?php include('banner.php'); ?>
+<div class="content clearfix">
+	<div class="warp">
+    	<div class="main left">
+       		 <ul class="article">
+             	<li>
+                					<img src="img/t.png" class="img1">
+                                    <h4><?php echo "<a href='show.php?id=".$content['c_id']."'>".$content['title']."</a>"; ?></h4>
+                                    <h6>自： Yann 2013-11-25</h6>
+                                    <img src="<?php echo get_small(get_imgsrc($content['content'])); ?>" class="img2" >
+                                    <ul class="tag">
+                                    <?php 
+                                    foreach(key_word_encode($content['key_words']) as $v2){
+                                        echo '<li><a href="search.php?event=key_word&amp;search='.$v2.'">'.$v2.'</a> | </li>';
+                                    }
+                                    ?>
+                                    </ul>
+                                    <p><?php echo strip_tags($content['content']); ?></p>
+                <li>
+             </ul>
 
-<body>
 
-    <h3>
-        <?php echo $content['title']; ?>
-    </h3>
-    <div style="height:500px; overflow:hidden;">
-        <?php echo $content['content']; ?>
-    </div>
-    <div>
-        <?php 
-        foreach(key_word_encode($content['key_words']) as $v){
-            echo "<a href='search.php?event=keyword&amp;search=$v'>$v</a> | ";
-        }
-        ?>
-    </div>
     
     
     
-    
-    
-    <br />
-    <br />
-    <br />
-    <br />
+
     
     <?php foreach($messages as $v){ ?>
     <div>
@@ -83,7 +81,8 @@
     	<textarea name="message"></textarea>
     	<input type="submit">
     </form>
-
-
-</body>
-</html>
+		 </div><!--left end-->
+         <?php include('sidebar.php'); ?>
+    </div><!--warp end-->
+</div><!--content end-->
+<?php include('footer.php'); ?>

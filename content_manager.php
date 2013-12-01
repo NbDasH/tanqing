@@ -56,16 +56,16 @@
 		}
 	}
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>无标题文档</title>
+<?php include('admin_header.php'); ?>
+<?php include('admin_nav.php'); ?>
+<div class="location">
+<!--如果没有登陆，不显示面包屑-->
+<a href="#">返回后台首页</a> >> <a href="#">文章管理</a>
+</div>
+<div class="content">
+
 <script type="text/javascript" src="ue/ueditor.config.js"></script>
 <script type="text/javascript" src="ue/ueditor.all.min.js"></script>
-</head>
-
-<body>
 
 <form action="" method="post">
 	标题:<input type="text" name="title" value="<?php if(!empty($data)){echo $data['title'];} ?>" />
@@ -77,5 +77,9 @@
     <input type="submit" value="发布">
 </form>
 
-</body>
-</html>
+<div class="description">
+	<span class="redFont">*</span> 
+	说点什么
+</div><!--描述 end-->
+</div><!--content end-->
+<?php include('admin_footer.php'); ?>
