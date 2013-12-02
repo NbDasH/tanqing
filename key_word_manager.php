@@ -45,8 +45,8 @@
 	
 	
 ?>
-<?php include('admin_header.php'); ?>
-<?php include('admin_nav.php'); ?>
+<?php include('template/admin_header.php'); ?>
+<?php include('template/admin_nav.php'); ?>
 <div class="location">
 <!--如果没有登陆，不显示面包屑-->
 <a href="#">返回后台首页</a> >> <a href="#">标签管理</a>
@@ -54,21 +54,24 @@
 <div class="content">
 <table>
 	<tr>
-    	<td>id</td>
-        <td>name</td>
-        <td>do</td>
+    	<td>序</td>
+        <td>标签名称</td>
+        <td>排序优先级</td>
+        <td>操作</td>
     </tr>
     <?php foreach($key_words as $v){ ?>
     <tr>
     	<td><?php echo $v['id']; ?></td>
         <td><?php echo $v['key_word']; ?></td>
         <td>
-        	<a href="key_word_manager.php?event=del&id=<?php echo $v['id']; ?>">删除</a>
         	<form action="" method="post">
             	<input type="hidden" name="id" value="<?php echo $v['id']; ?>" />
                 <input type="text" name="weight" value="<?php echo $v['weight']; ?>" />
-                <input type="submit" value="确认" />
+                <input type="submit" value="确认" class="btn_link2" />
            	</form>
+        </td>
+        <td>
+        	<a href="key_word_manager.php?event=del&id=<?php echo $v['id']; ?>">删除</a>
         </td>
     </tr>
     <?php } ?>
@@ -76,8 +79,8 @@
 
 <div class="description">
 	<span class="redFont">*</span> 
-	说点什么
+	数值越大，排得越靠前
 </div><!--描述 end-->
 
 </div><!--content end-->
-<?php include('admin_footer.php'); ?>
+<?php include('template/admin_footer.php'); ?>

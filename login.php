@@ -15,8 +15,8 @@
 	}	
 ?>
 
-<?php include('admin_header.php'); ?>
-<?php include('admin_nav.php'); ?>
+<?php include('template/admin_header.php'); ?>
+<?php include('template/admin_nav.php'); ?>
 
 <div class="location">
 <!--如果没有登陆，不显示面包屑-->
@@ -37,4 +37,4 @@
 	说点什么
 </div><!--描述 end-->
 </div>
-<?php include('admin_footer.php'); ?>
+<?php include('template/admin_footer.php'); ?>

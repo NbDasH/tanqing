@@ -8,19 +8,19 @@
 	$users = $db->select('users',NULL,' order by id desc');
 	
 ?>
-<?php include('admin_header.php'); ?>
-<?php include('admin_nav.php'); ?>
+<?php include('template/admin_header.php'); ?>
+<?php include('template/admin_nav.php'); ?>
 <div class="location">
 <!--如果没有登陆，不显示面包屑-->
-<a href="#">返回后台首页</a> >> <a href="#">文章管理</a>
+<a href="#">返回后台首页</a> >> <a href="#">成员管理</a>
 </div>
 <div class="content">
-<a href="content_manager.php?event=add">增加成员</a>
+<h5><a href="content_manager.php?event=add" class="btn_link">增加成员</a></h5>
 <table>
 	<tr>
-    	<td>id</td>
-        <td>name</td>
-        <td>do</td>
+    	<td>序</td>
+        <td>用户名</td>
+        <td>操作</td>
     </tr>
     <?php foreach($users as $v){ ?>
     <tr>
@@ -39,4 +39,4 @@
 	说点什么
 </div><!--描述 end-->
 </div><!--content end-->
-<?php include('admin_footer.php'); ?>
+<?php include('template/admin_footer.php'); ?>

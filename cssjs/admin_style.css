@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ padding:0; margin:0;  font-size:12px; text-decoration:none;}
+.header{ background:#000; color:white; line-height:80px;padding-left:20px;}
+a:hover{ color:red;}
+h1{ font-size:16px; }
+
+/*子导航*/
+h5{ padding-bottom:15px; border-bottom:1px solid #ccc; margin-bottom:10px; font-weight:400}
+
+
+/*表格样式*/
+table{ border-collapse:collapse; min-width:400px;}
+td{ padding:3px 10px;}
+tr:nth-child(1) td{ background:#eee;}
+tr{ border-bottom:1px #eee solid;}
+tr:hover{ border-bottom:1px #ccc solid;}
+
+
+
+
+
+.nav{ height:30px; background:#FC6; padding-left:20px;}
+.nav li{ float:left; list-style:none;}
+.nav a { display:block; line-height:30px; width:100px; margin:1px; text-align:center; color:black;}
+.nav a:hover{ background:white; color:red;}
+.nav  li li{display:none;}
+.nav  li:hover li{ display:block;}
+.nav li ul li{background:#eee;}
+.nav li ul li a:hover{ color:#333;}
+
+
+.location{
+	padding:40px 40px 0px;
+	border:1px dash #ccc;	
+}
+
+.location a{ color:#999;}
+.location a:hover{ color:red;}
+
+
+.content{
+	
+	padding:50px;
+	min-height:400px;
+	
+}
+
+/*页面备注*/
+.content .description{ 
+ margin-top:20px;
+ border:dashed #eee 1px;
+ padding:20px;
+ color:gray;
+}
+
+/*颗粒*/
+.redFont{color:red;}
+/*链接按钮*/
+.btn_link{ padding:5px 10px; border:1px solid #999; background:#FC6; color:#000;}
+.btn_link:hover{ background:#fff; color:#f00; cursor:pointer}
+.btn_form{ display:block; padding:5px 30px;}
+
+.btn_link2{ padding:0px 5px; border:1px solid #999; background:#eee; color:#000;}
+.btn_link2:hover{ background:#fff; color:#f00; cursor:pointer;}
+
+/*新文本框*/
+.input{ line-height:30px; border:1px #ccc solid; width:700px; margin:5px 0; padding-left:5px; font-size:14px;}
+
+
+
+
+.footer{ text-align:right; padding:10px; background:#eee;color:#999;}

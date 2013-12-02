@@ -25,9 +25,9 @@ em{font-style:normal}
 
 /*header*/
 .header .warp{padding:17px 0px 0px 0px;}
-h1{text-align:center; text-indent:-9999px; background:url(img/logo.jpg); background-repeat:no-repeat; background-position:center}
-.back{ background:url(img/back.png); background-repeat:no-repeat; display:block; height:40px; width:115px; text-align:center; line-height:40px; color:#bfbdbd; margin-left:15px;font-weight:bold}
-.top{ width:100px; height:40px; background:url(img/top.jpg); text-align:center; line-height:40px; display:block; color:#9f9d9d; margin-right:17px; font-weight:bold}
+h1{text-align:center; text-indent:-9999px; background:url(../img/logo.jpg); background-repeat:no-repeat; background-position:center}
+.back{ background:url(../img/back.png); background-repeat:no-repeat; display:block; height:40px; width:115px; text-align:center; line-height:40px; color:#bfbdbd; margin-left:15px;font-weight:bold}
+.top{ width:100px; height:40px; background:url(../img/top.jpg); text-align:center; line-height:40px; display:block; color:#9f9d9d; margin-right:17px; font-weight:bold}
 
 /*banner*/
 .banner .warp{position:relative; background:#36F}
@@ -35,8 +35,8 @@ h1{text-align:center; text-indent:-9999px; background:url(img/logo.jpg); backgro
 
 
 .btns{position:absolute; right:10px; top:270px; z-index:2}
-.btns li{width:23px; height:23px; background:url(img/b.png); cursor:pointer; float:left; margin-right:7px; color:#FFF; text-align:center; line-height:23px;}
-.btns li:hover,.btns .hover{background:url(img/b_hover.png);}
+.btns li{width:23px; height:23px; background:url(../img/b.png); cursor:pointer; float:left; margin-right:7px; color:#FFF; text-align:center; line-height:23px;}
+.btns li:hover,.btns .hover{background:url(../img/b_hover.png);}
 /*content*/
 .content .warp{padding-top:20px;}
 .main{width:680px;}
@@ -56,14 +56,14 @@ h1{text-align:center; text-indent:-9999px; background:url(img/logo.jpg); backgro
 .about h3{ height:40px; color:#f6f6f6; text-align:center; line-height:40px; background:#5c5a5a}
 .share{margin-top:25px;}
 .share li{float:left; margin:0px 5px;}
-.share .s1{background:url(img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:0px 0px; display:block  }
-.share .s2{background:url(img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-40px 0px; display:block }
-.share .s3{background:url(img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-80px 0px;display:block  }
-.share .s4{background:url(img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-120px 0px;display:block }
-.share .s1:hover{background:url(img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:0px -40px; display:block  }
-.share .s2:hover{background:url(img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-40px -40px;display:block  }
-.share .s3:hover{background:url(img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-80px -40px; display:block }
-.share .s4:hover{background:url(img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-120px -40px;display:block }
+.share .s1{background:url(../img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:0px 0px; display:block  }
+.share .s2{background:url(../img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-40px 0px; display:block }
+.share .s3{background:url(../img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-80px 0px;display:block  }
+.share .s4{background:url(../img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-120px 0px;display:block }
+.share .s1:hover{background:url(../img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:0px -40px; display:block  }
+.share .s2:hover{background:url(../img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-40px -40px;display:block  }
+.share .s3:hover{background:url(../img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-80px -40px; display:block }
+.share .s4:hover{background:url(../img/icon.png); background-repeat:no-repeat; height:40px; width:40px;background-position:-120px -40px;display:block }
 
 .ad{height:310px;background:#069}
 .search {height:40px; margin:20px 0px;}
@@ -94,9 +94,9 @@ h1{text-align:center; text-indent:-9999px; background:url(img/logo.jpg); backgro
 	.ad{ display:none;}
 	.warp{width:100%; margin:0px auto;}
 	.banner{display:none;}
-	h1{text-align:center; text-indent:-9999px; background:url(img/logo.jpg); background-repeat:no-repeat;-webkit-background-size:100% cover;  width:6.57em; margin:0px 0px 0px 2em; float:left}
-	.back{ background:url(img/back.png); font-size:14px; background-repeat:no-repeat; display:block;  width:115px; text-align:center; line-height:40px; color:#bfbdbd; margin-left:15px;font-weight:bold;  -webkit-background-size:100% cover; width:8.214em}
-	.top{ width:100px; background:url(img/top.jpg);font-size:14px; text-align:center; line-height:40px; display:block; color:#9f9d9d; margin-right:17px; font-weight:bold;-webkit-background-size:100% cover; width:7.142em}
+	h1{text-align:center; text-indent:-9999px; background:url(../img/logo.jpg); background-repeat:no-repeat;-webkit-background-size:100% cover;  width:6.57em; margin:0px 0px 0px 2em; float:left}
+	.back{ background:url(../img/back.png); font-size:14px; background-repeat:no-repeat; display:block;  width:115px; text-align:center; line-height:40px; color:#bfbdbd; margin-left:15px;font-weight:bold;  -webkit-background-size:100% cover; width:8.214em}
+	.top{ width:100px; background:url(../img/top.jpg);font-size:14px; text-align:center; line-height:40px; display:block; color:#9f9d9d; margin-right:17px; font-weight:bold;-webkit-background-size:100% cover; width:7.142em}
 
 
 }
