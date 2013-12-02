@@ -17,7 +17,7 @@
 		$id = $_GET['id'];
 		$db = new db;
 		$db->del('contents',array('id'=>$id));
-		echo 'done'; //预留给ajax删除
+		jump('content_list.php');
 		exit();
 	}		
 	

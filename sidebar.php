@@ -1,6 +1,6 @@
 <?php
 //获取关键字
-$key_words = $db->select('key_words',NULL,'order by click_rate desc limit 0,20');
+$key_words = $db->select('key_words',NULL,'order by weight desc limit 0,20');
 ?>
 <div class="sidebar right">
 

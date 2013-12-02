@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: 127.0.0.1
--- 生成日期: 2013-11-24 16:16:33
+-- 生成日期: 2013-12-02 16:59:53
 -- 服务器版本: 5.6.11
 -- PHP 版本: 5.5.3
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `contents` (
   `user_id` int(12) NOT NULL,
   `key_words` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 -- --------------------------------------------------------
 
@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `contents` (
 CREATE TABLE IF NOT EXISTS `key_words` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `key_word` varchar(50) NOT NULL,
-  `click_rate` int(20) NOT NULL,
+  `weight` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `content_id` (`content_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_name` varchar(50) NOT NULL,
   `user_nick_name` varchar(50) NOT NULL,
   `user_password` varchar(50) NOT NULL,
-  `user_event` int(1) NOT NULL DEFAULT '2',
+  `user_event` int(1) NOT NULL DEFAULT '1',
   `user_photo` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;

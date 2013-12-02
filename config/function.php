@@ -70,7 +70,16 @@
 	//判断管理员登陆
 	function admin_validate(){
 		user_validate();
-		if($_SESSION['user']['user_event'] != 1){
+		if($_SESSION['user']['user_event'] < 2){
+			jump('login.php');
+			exit();
+		}
+	}
+	
+	//超级管理员登陆
+	function super_admin_validate(){
+		user_validate();
+		if($_SESSION['user']['user_event'] < 3){
 			jump('login.php');
 			exit();
 		}

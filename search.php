@@ -24,9 +24,12 @@
 		//数据获取
 		$contents = $db->select('contents',array(array('contents`.`key_words','LIKE','%'.$search.'%')),'order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
 		//高亮
+		
 		foreach($contents as $k => $v){
-			$contents[$k]['key_words'] = preg_replace('/('.$search.')/i','<span style="color:red">'.$search.'</span>',$v['key_words']);
+			//$contents[$k]['key_words'] = preg_replace('/('.$search.')/i','<span style="color:red">'.$search.'</span>',$v['key_words']);
+			$contents[$k]['content'] = strip_tags($v['content']);
 		}
+		
 	}elseif($event == 'search'){
 		//分页
 		$all_nm =  $db->select('contents',NULL,'where `contents`.`content` LIKE "%'.$search.'%" or `contents`.`title` LIKE "%'.$search.'%" order by `contents`.`id` desc','count(id)');
@@ -63,7 +66,7 @@
                                     }
                                     ?>
                                     </ul>
-                                    <p><?php echo strip_tags($v['content']); ?></p>
+                                    <p><?php echo $v['content']; ?></p>
             
                                     
                             </li>
