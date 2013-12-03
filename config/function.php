@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	//array()的简写
 	function a(){
 		return func_get_args();
@@ -98,20 +98,36 @@
 	//设置680像素的图片
 	function get_small($url){
 		$name = explode('.',$url);
-		return $name[0].'_small.'.$name[1];
+		$data = '';
+		foreach($name as $k => $v){
+			if($k == count($name)-2){
+				$data .= $v.'_small.';
+			}else{
+				$data .= $v.'.';
+			}
+		}
+		return substr($data,0,-1);
 	}
 	
 	//设置320宽度的图片
 	function get_phone($url){
 		$name = explode('.',$url);
-		return $name[0].'_phone.'.$name[1];
+		$data = '';
+		foreach($name as $k => $v){
+			if($k == count($name)-2){
+				$data .= $v.'_phone.';
+			}else{
+				$data .= $v.'.';
+			}
+		}
+		return substr($data,0,-1);
 	}
 	
 	//验证非空字段
 	function get_err($arr){
 		$err =array();
 		foreach($arr as $k=>$v){
-			if(empty(trim($v))){
+			if(trim($v)!=''){
 				$err[$k] = '不能为空！';
 			}
 		}
