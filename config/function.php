@@ -100,4 +100,14 @@
 		return $name[0].'_phone.'.$name[1];
 	}
 	
+	function get_err($arr){
+		$err =array();
+		foreach($arr as $k=>$v){
+			if(empty(trim($v))){
+				$err[$k] = '不能为空！';
+			}
+		}
+		return $err;
+	}
+	
 ?>

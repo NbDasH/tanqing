@@ -15,7 +15,7 @@
 <a href="#">返回后台首页</a> >> <a href="#">文章管理</a>
 </div>
 <div class="content">
-<a href="content_manager.php?event=add">增加成员</a>
+<a href="user_manager.php?event=add">增加成员</a>
 <table>
 	<tr>
     	<td>id</td>
