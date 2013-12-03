@@ -19,7 +19,7 @@ $key_words = $db->select('key_words',NULL,'order by weight desc limit 0,20');
             <div class="ad"><img src="img/ad.jpg"></div>
             
             <div class="search">
-            	<form action="search.php" method="get">
+            	<form action="../search.php" method="get">
                 	<input type="hidden" name="event" value="search" />
                 	<input type="text" name="search" class="text" value="输入文章关键子">
                     <input type="submit" class="btn" value="查">

@@ -46,7 +46,8 @@
 		switch($_POST['event']){
 			case 'add':
 				$db->insert('contents',$data);
-				jump('show.php?id='.$db->insert_id());
+				//jump('show.php?id='.$db->insert_id());
+				jump('content_list.php');
 				exit();
 			case 'edit':
 				$id = $_POST['id'];
@@ -56,11 +57,11 @@
 		}
 	}
 ?>
-<?php include('admin_header.php'); ?>
-<?php include('admin_nav.php'); ?>
+<?php include('template/admin_header.php'); ?>
+<?php include('template/admin_nav.php'); ?>
 <div class="location">
 <!--如果没有登陆，不显示面包屑-->
-<a href="#">返回后台首页</a> >> <a href="#">文章管理</a>
+<a href="#">返回后台首页</a> >> <a href="content_list.php">文章管理</a> <?php if(isset($_GET['event']))if($_GET['event']=='add')echo " >> 添加新文章"; else echo " >> 修改文章 > ".$data['title']; ?>
 </div>
 <div class="content">
 
@@ -68,13 +69,14 @@
 <script type="text/javascript" src="ue/ueditor.all.min.js"></script>
 
 <form action="" method="post">
-	标题:<input type="text" name="title" value="<?php if(!empty($data)){echo $data['title'];} ?>" />
+
+	<input type="text" name="title" value="<?php if(!empty($data)){echo $data['title'];} ?>" placeholder="标题" class="input" />
     <textarea name="content" id="myEditor"><?php if(!empty($data)){echo $data['content'];} ?></textarea>
     <script type="text/javascript">UE.getEditor('myEditor');</script>
-    关键字:<input type="text" name="key_words" value="<?php if(!empty($data)){echo $data['key_words'];} ?>" />
+    <input type="text" name="key_words" value="<?php if(!empty($data)){echo $data['key_words'];} ?>" placeholder="标签1,标签2,..........." class="input" />
     <input type="hidden" name="event" value="<?php echo $event; ?>" />
     <input type="hidden" name="id" value="<?php if(!empty($data)){echo $data['id'];} ?>" />
-    <input type="submit" value="发布">
+    <input type="submit" value="<?php if($_GET['event']=='add')echo '发布'; else echo '确定提交'?>" class="btn_link btn_form">
 </form>
 
 <div class="description">
@@ -82,4 +84,4 @@
 	说点什么
 </div><!--描述 end-->
 </div><!--content end-->
-<?php include('admin_footer.php'); ?>
+<?php include('template/admin_footer.php'); ?>
