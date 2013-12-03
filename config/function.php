@@ -85,21 +85,29 @@
 		}
 	}
 	
+	//从文档中获取第一个img的src
 	function get_imgsrc($content){
-		$strr= preg_match('/<img.+src=\"?(.+\.(jpg|gif|bmp|bnp|png))?\" .+>/i',$content,$matches);
-		return $matches["1"];
+		$result = preg_match('/<img.{0,5}src=\"?(.{0,90}\.(jpg|gif|bmp|bnp|png))?\" .{0,70}\/>/i',$content,$matches);
+		if($result){
+			return $matches["1"];
+		}else{
+			return false;	
+		}
 	}
 	
+	//设置680像素的图片
 	function get_small($url){
 		$name = explode('.',$url);
 		return $name[0].'_small.'.$name[1];
 	}
 	
+	//设置320宽度的图片
 	function get_phone($url){
 		$name = explode('.',$url);
 		return $name[0].'_phone.'.$name[1];
 	}
 	
+	//验证非空字段
 	function get_err($arr){
 		$err =array();
 		foreach($arr as $k=>$v){
@@ -108,6 +116,34 @@
 			}
 		}
 		return $err;
+	}
+	
+	//详细页中的内容 清除第一张图 将剩余的图变小图
+	function show_content($content){
+		preg_match_all('/<img.{0,5}src=\"?(.{0,90}\.(jpg|gif|bmp|bnp|png))?\" .{0,70}\/>/i',$content,$matches);
+
+		foreach($matches[0] as $k => $v){
+			if($k == 0){
+				$content = str_replace($v,'',$content);
+			}else{
+				$content = str_replace($v,'<img src="'.get_small($matches[1][$k]).'" >',$content);
+			}
+		}
+		
+		return $content;
+	}
+	
+	//格式化输出关键字
+	function get_list_key_words($key_words){
+		$str = '';
+		foreach($key_words as $k => $v){
+			if($k == count($key_words)-1){
+				$str.='<li><a href="search.php?event=key_word&amp;search='.$v.'">'.$v.'</a></li>';
+			}else{
+				$str.='<li><a href="search.php?event=key_word&amp;search='.$v.'">'.$v.'</a> | </li>';
+			}
+		}	
+		return $str;
 	}
 	
 ?>

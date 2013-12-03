@@ -42,8 +42,6 @@
 		
 		$err = get_err($data);
 		
-		print_r($err);
-		
 		$password_confirm = $_POST['password_confirm'];
 		
 		if($data['user_password'] != $_POST['old_password'] && $password_confirm != $data['user_password']){
@@ -73,8 +71,8 @@
 		}
 	}
 ?>
-<?php include('admin_header.php'); ?>
-<?php include('admin_nav.php'); ?>
+<?php include('template/admin_header.php'); ?>
+<?php include('template/admin_nav.php'); ?>
 <div class="location">
 <!--如果没有登陆，不显示面包屑-->
 <a href="#">返回后台首页</a> >> <a href="#">成员管理</a>
@@ -86,13 +84,15 @@
     <input type="text" name="user_name" value="<?php if(!empty($data)){echo $data['user_name'];} ?>" /><span><?php if(isset($err['user_name'])){echo $err['user_name'];} ?></span>
     <br />
     密码：
-    <input type="password" name="user_password" value="<?php if(!empty($data)){echo $data['user_password'];} ?>" /><span><?php if(isset($err['user_password'])){echo $err['user_password'];} ?></span>
+    <input type="password" name="user_password" value="<?php if(!empty($data)){echo $data['user_password'];} ?>" />
+    <span><?php if(isset($err['user_password'])){echo $err['user_password'];} ?></span>
     <br />
     确认密码：
     <input type="text" name="password_confirm" value="<?php if(isset($data['password_confirm'])){echo $data['password_confirm'];} ?>" /><span><?php if(isset($err['password_confirm'])){echo $err['password_confirm'];} ?></span>
     <br />
     昵称：
-    <input type="text" name="user_nick_name" value="<?php if(!empty($data)){echo $data['user_nick_name'];} ?>" /><span><?php if(isset($err['user_nick_name'])){echo $err['user_nick_name'];} ?></span>
+    <input type="text" name="user_nick_name" value="<?php if(!empty($data)){echo $data['user_nick_name'];} ?>" />
+    <span><?php if(isset($err['user_nick_name'])){echo $err['user_nick_name'];} ?></span>
     <br />
     <input type="hidden" name="event" value="<?php echo $event; ?>" />
     <input type="hidden" name="old_password" value="<?php if(!empty($data)){echo $data['old_password'];} ?>" />
@@ -105,4 +105,4 @@
 	说点什么
 </div><!--描述 end-->
 </div><!--content end-->
-<?php include('admin_footer.php'); ?>
+<?php include('template/admin_footer.php'); ?>

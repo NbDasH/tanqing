@@ -67,15 +67,15 @@
                                     <h6>自： Yann 2013-11-25</h6>
                                     <?php
 									/*输出文章主图*/
-									$imgPath = get_small(get_imgsrc($v['content']));
+									$imgsrc = get_imgsrc($v['content']);
+									if($imgsrc){
+									$imgPath = get_small($imgsrc);
 									 if(strlen($imgPath)>10){//如果路径长度太短，说明找不到图像 ?>
                                     <img src="<?php echo $imgPath; ?>" class="img2" >
-                                    <?php } //if end ?>
+                                    <?php }} //if end ?>
                                     <ul class="tag">
                                     <?php 
-                                    foreach(key_word_encode($v['key_words']) as $v2){
-                                        echo '<li><a href="search.php?event=key_word&amp;search='.$v2.'">'.$v2.'</a> | </li>';
-                                    }
+                                    echo get_list_key_words(key_word_encode($v['key_words']));
                                     ?>
                                     </ul>
                                     <p><?php echo $v['content']; ?></p>

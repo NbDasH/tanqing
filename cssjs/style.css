@@ -39,7 +39,7 @@ h1{text-align:center; text-indent:-9999px; background:url(../img/logo.jpg); back
 .btns li:hover,.btns .hover{background:url(../img/b_hover.png);}
 /*content*/
 .content .warp{padding-top:20px;}
-.main{width:680px;}
+.main{width:680px; min-height:700px;} /*2013-12-3 最小高度*/
 .article{padding-top:15px;}
 .article .img1{margin:0px 10px 8px 5px; float:left;}
 .article h4{ font-size:20px; padding-top:5px; color:#8f5c94}
@@ -47,7 +47,7 @@ h1{text-align:center; text-indent:-9999px; background:url(../img/logo.jpg); back
 .article .tag{ height:22px; margin:15px 0px 33px 0px}
 .article .tag li{float:left; margin:0px 5px; }
 .article .tag li a{color:#820200}
-.article p{line-height:24px; text-indent:2em;}
+.article p{line-height:24px;}
 .article li{ margin-bottom:33px;}
 
 /*sidebar*/
