@@ -25,7 +25,7 @@
 	//添加关键字
 	function set_keyword($key_words){
 		$key_word = '';
-		$key_words = str_replace(' ','',$key_words);
+		//$key_words = str_replace(' ','',$key_words);
 		$key_word_arr = explode(',',$key_words);
 		$db = new db;
 		

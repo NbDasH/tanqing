@@ -67,13 +67,25 @@
 
 <script type="text/javascript" src="ue/ueditor.config.js"></script>
 <script type="text/javascript" src="ue/ueditor.all.min.js"></script>
-
+<script type="text/javascript" src="cssjs/jquery-2.0.1.js"></script>
+<script type="text/javascript" src="cssjs/key_words.js"></script>
 <form action="" method="post">
 
 	<input type="text" name="title" value="<?php if(!empty($data)){echo $data['title'];} ?>" placeholder="标题" class="input" />
     <textarea name="content" id="myEditor"><?php if(!empty($data)){echo $data['content'];} ?></textarea>
     <script type="text/javascript">UE.getEditor('myEditor');</script>
     <input type="text" name="key_words" value="<?php if(!empty($data)){echo $data['key_words'];} ?>" placeholder="标签1,标签2,..........." class="input" />
+	常用标签:
+    <span class="key_words">
+	<?php
+		$db = new db;
+		//获取关键字
+		$key_words = $db->select('key_words',NULL,'order by weight desc');
+		foreach($key_words as $v){
+			echo "<a href='#'>".$v['key_word']."</a> ";
+		}
+	?>
+    </span>
     <input type="hidden" name="event" value="<?php echo $event; ?>" />
     <input type="hidden" name="id" value="<?php if(!empty($data)){echo $data['id'];} ?>" />
     <input type="submit" value="<?php if($_GET['event']=='add')echo '发布'; else echo '确定提交'?>" class="btn_link btn_form">
