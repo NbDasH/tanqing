@@ -87,7 +87,7 @@
 	
 	//从文档中获取第一个img的src
 	function get_imgsrc($content){
-		$result = preg_match('/<img.{0,5}src=\"?(.{0,90}\.(jpg|gif|bmp|bnp|png))?\" .{0,70}\/>/i',$content,$matches);
+		$result = preg_match('/<img.{0,70}src=\"?(.{0,90}\.(jpg|gif|bmp|bnp|png))?\".{0,70}\/>/i',$content,$matches);
 		if($result){
 			return $matches["1"];
 		}else{
@@ -136,7 +136,7 @@
 	
 	//详细页中的内容 清除第一张图 将剩余的图变小图
 	function show_content($content){
-		preg_match_all('/<img.{0,5}src=\"?(.{0,90}\.(jpg|gif|bmp|bnp|png))?\" .{0,70}\/>/i',$content,$matches);
+		preg_match_all('/<img.{0,70}src=\"?(.{0,90}\.(jpg|gif|bmp|bnp|png))?\".{0,70}\/>/i',$content,$matches);
 
 		foreach($matches[0] as $k => $v){
 			if($k == 0){
