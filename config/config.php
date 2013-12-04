@@ -14,4 +14,6 @@
 		$_GET = data_check($_GET);
 	}
 	
+	$CONFIG = get_config();
+	
 ?>

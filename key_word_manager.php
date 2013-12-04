@@ -39,7 +39,7 @@
 	
 	$db = new db;
 	
-	$key_words = $db->select('key_words');
+	$key_words = $db->select('key_words',NULL,'order by weight desc');
 	
 	
 	

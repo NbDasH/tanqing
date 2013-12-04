@@ -1,8 +1,8 @@
 <div class="nav">
 	<ul>
     <!--如果没有登陆，不显示导航内容-->
-    	<li><a href="#">全局设置</a></li>
-        <li><a href="#">Banner修改</a></li>
+    	<li><a href="global_config.php">全局设置</a></li>
+        <li><a href="banner_manager.php">Banner修改</a></li>
         <li>
         	<a href="content_list.php">文章管理</a>
             <ul>

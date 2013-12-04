@@ -11,7 +11,7 @@
 	}
 	
 	$db = new db;
-	$limit = 5;
+	$limit = $CONFIG['page_limit'];
 	$page = isset($_GET['page']) ? $_GET['page'] : 1;
 	
 	//判断搜索类型

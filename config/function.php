@@ -8,11 +8,17 @@
 	function data_check($arr){
 		$data = array();
 		foreach($arr as $k => $v){
-			if($k == 'content'){
-				$data[addslashes($k)] = addslashes($v);
+			if(is_array($v)){
+				$data[addslashes($k)] = data_check($v);
+				
 			}else{
-				$data[addslashes(strip_tags($k))] = addslashes(strip_tags($v));
+				if($k == 'content'){
+					$data[addslashes($k)] = addslashes($v);
+				}else{
+					$data[addslashes(strip_tags($k))] = addslashes(strip_tags($v));
+				}
 			}
+			
 		}
 		return $data;
 	}
@@ -160,6 +166,17 @@
 			}
 		}	
 		return $str;
+	}
+	
+	//获取全局设置
+	function get_config(){
+		$db = new db;
+		$arr = $db->select('global_config');
+		$data = array();
+		foreach($arr as $v){
+			$data[$v['config_name']] = $v['config_value'];
+		}
+		return $data;
 	}
 	
 ?>

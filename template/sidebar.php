@@ -7,17 +7,20 @@ $key_words = $db->select('key_words',NULL,'order by weight desc limit 0,20');
 			
         	<div class="about">
             	<h3>关于我们(About)</h3>
+                <?php if($CONFIG['weibo_btn']==1){ ?>
                 <ul class="share">
                 	<li><a href="#" class="s1"></a></li>
                     <li><a href="#" class="s2"></a></li>
                     <li><a href="#" class="s3"></a></li>
                     <li><a href="#" class="s4"></a></li>
                 </ul>
+                <?php } ?>
             </div>
             
             <!--做一个开关，可以开启或关闭它-->
+            <?php if($CONFIG['ad_visible']==1){ ?>
             <div class="ad"><img src="img/ad.jpg"></div>
-            
+            <?php } ?>
             <div class="search">
             	<form action="../search.php" method="get">
                 	<input type="hidden" name="event" value="search" />

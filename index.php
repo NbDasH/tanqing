@@ -6,7 +6,7 @@
 	//分页
 	$all_nm =  $db->select('contents',NULL,NULL,'count(id)');
 	$all_nm = $all_nm[0]['count(id)'];
-	$limit = 5;
+	$limit = $CONFIG['page_limit'];
 	$page = isset($_GET['page']) ? $_GET['page'] : 1;
 	$page = new page($all_nm,$limit,'index.php',$page);
 	
