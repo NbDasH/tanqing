@@ -42,7 +42,7 @@
 <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="utf-8">
-<title>明园艺术视野</title>
+<title>明园艺术视野 >> <?php echo $content['title']; ?></title>
 <?php include('template/header.php'); ?>
 <?php include('template/banner.php'); ?>
 <div class="content clearfix">
@@ -75,24 +75,51 @@
     
     
 
-    
+ <div class="comment">
+    <h5>评论</h5>
+    <ul>
     <?php foreach($messages as $v){ ?>
-    <div>
-    	<?php echo $v['time'].':'.$v['message'] ?>
-    </div>
+    <li>
+    	<?php 
+		echo "<span>".$v['time'].'</span>游客说:'.$v['message']."<a href='#'>回复</a>";
+		?>
+        <div class="reply">
+        	xxxxxxxxxxxxxxxxxxxxxx<span>某某回复</span>
+        </div>
+        <div class="reply_form">
+        	<form action="" method="post">
+                <div><textarea name="message"></textarea></div>
+                <div><input type="submit" class="btn_link2"></div>
+            </form>
+        </div>
+    </li>
     <?php } ?>
-    
-    <br />
-    <br />
-    <br />
-    <br />
+    </ul>
+
     
     
-    评论:
+    <h6>我要评论</h6>
     <form action="" method="post">
-    	<textarea name="message"></textarea>
-    	<input type="submit">
+    	<div><textarea name="message"></textarea></div>
+    	<div><input type="submit" class="btn_link2"></div>
     </form>
+ </div>
+ 
+ <style>
+ .comment{ width:400px;}
+ .comment h6{padding:5px;font-size:14px;font-weight:400;color:blue; margin:10px 0;}
+ .comment h5{padding:5px; font-size:14px; font-weight:400; color:blue; border:solid 1px #eee; margin:10px 0;}
+ .comment li{ border-bottom:1px #eee dashed; padding:5px;}
+ .comment textarea{ width:400px; height:50px; border:1px solid #ccc;}
+ 
+ .comment .btn_link2{ padding:3px 15px; border:1px solid #999; background:#eee; color:#000; margin-top:10px;}
+ .comment .btn_link2:hover{ background:#fff; color:#f00; cursor:pointer; cursor:pointer;}
+ .comment .reply_form{ display:none;}
+ .comment .reply{color:#06C; text-align:right; padding-bottom:30px;}
+ .comment .reply span{ font-weight:800;}
+ </style> 
+    
+    
 		 </div><!--left end-->
          <?php include('template/sidebar.php'); ?>
     </div><!--warp end-->
