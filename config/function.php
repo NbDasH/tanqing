@@ -133,7 +133,7 @@
 	function get_err($arr){
 		$err =array();
 		foreach($arr as $k=>$v){
-			if(trim($v)!=''){
+			if(trim($v) == ''){
 				$err[$k] = '不能为空！';
 			}
 		}

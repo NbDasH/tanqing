@@ -88,7 +88,7 @@
     <span><?php if(isset($err['user_password'])){echo $err['user_password'];} ?></span>
     <br />
     
-    <input class="input_addUser" type="text" name="password_confirm" value="<?php if(isset($data['password_confirm'])){echo $data['password_confirm'];} ?>" /><span><?php if(isset($err['password_confirm'])){echo $err['password_confirm'];} ?></span>确认密码
+    <input class="input_addUser" type="password" name="password_confirm" value="<?php if(isset($data['password_confirm'])){echo $data['password_confirm'];} ?>" /><span><?php if(isset($err['password_confirm'])){echo $err['password_confirm'];} ?></span>确认密码
     <br />
     
     <input class="input_addUser" type="text" name="user_nick_name" value="<?php if(!empty($data)){echo $data['user_nick_name'];} ?>" />昵称

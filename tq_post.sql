@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: 127.0.0.1
--- 生成日期: 2013-12-02 16:59:53
+-- 生成日期: 2013-12-04 17:14:41
 -- 服务器版本: 5.6.11
 -- PHP 版本: 5.5.3
 
@@ -25,6 +25,27 @@ USE `tq_post`;
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `banners`
+--
+
+CREATE TABLE IF NOT EXISTS `banners` (
+  `id` int(1) NOT NULL AUTO_INCREMENT,
+  `link` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `banners`
+--
+
+INSERT INTO `banners` (`id`, `link`) VALUES
+(1, 'dd32.com'),
+(2, '321'),
+(3, 'baidu.com');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `contents`
 --
 
@@ -36,7 +57,28 @@ CREATE TABLE IF NOT EXISTS `contents` (
   `user_id` int(12) NOT NULL,
   `key_words` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `global_config`
+--
+
+CREATE TABLE IF NOT EXISTS `global_config` (
+  `config_name` varchar(50) NOT NULL,
+  `config_value` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `global_config`
+--
+
+INSERT INTO `global_config` (`config_name`, `config_value`) VALUES
+('page_limit', '5'),
+('page_footer', 'aaa2'),
+('ad_visible', '0'),
+('weibo_btn', '0');
 
 -- --------------------------------------------------------
 
@@ -49,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `key_words` (
   `key_word` varchar(50) NOT NULL,
   `weight` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
 
 -- --------------------------------------------------------
 
@@ -82,7 +124,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_event` int(1) NOT NULL DEFAULT '1',
   `user_photo` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `users`
+--
+
+INSERT INTO `users` (`id`, `user_name`, `user_nick_name`, `user_password`, `user_event`, `user_photo`) VALUES
+(1, 'admin', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 3, '');
 
 --
 -- 限制导出的表
