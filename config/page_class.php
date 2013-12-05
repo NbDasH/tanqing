@@ -12,6 +12,7 @@
 		function __construct($all_row_nm,$limit_nm,$url,$page=NULL){
 			$this->all_row_nm = $all_row_nm;
 			$this->limit_nm = $limit_nm;
+	
 			$this->max_page = ceil($all_row_nm/$limit_nm);
 			$this->url = $url;
 			$this->page = intval($page) < 1 ? 1 : intval($page);

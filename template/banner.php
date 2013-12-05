@@ -1,9 +1,9 @@
 <div class="banner">
 	<div class="warp">
     	<div class="imgs">
-            <img src="img/b3.jpg" style="z-index:1">
-            <img src="img/b2.jpg">
-            <img src="img/b1.jpg">
+            <img src="img/b3.jpg?rand=<?php echo rand(); ?>" style="z-index:1">
+            <img src="img/b2.jpg?rand=<?php echo rand(); ?>">
+            <img src="img/b1.jpg?rand=<?php echo rand(); ?>">
             
            
         </div>

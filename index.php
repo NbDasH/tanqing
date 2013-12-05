@@ -12,6 +12,7 @@
 	
 	//获取数据
 	$contents = $db->select('contents',NULL,'order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+	
 
 	
 ?>

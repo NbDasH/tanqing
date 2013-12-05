@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	
 
     /**
@@ -51,7 +51,7 @@
      *   'state'    :'SUCCESS'  //上传状态，成功时返回SUCCESS,其他任何值将原样返回至图片上传框中
      * }
      */
-	 
+	 $title = substr($title,0,-4);
 	 if(strlen($title) > 50){
 		$title = substr($title,0,50); 
 	 }

@@ -20,8 +20,8 @@
 		$db = new db;
 		$db->insert('messages',$data);
 		
-		jump("show.php?id=$id");
-		exit();
+		//jump("show.php?id=$id");
+		//exit();
 	}
 	
 	

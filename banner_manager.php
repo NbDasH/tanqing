@@ -29,7 +29,7 @@
 			$i++;
 		}
 		
-		jump('banner_manager.php');
+		//jump('banner_manager.php');
 		
 	}
 	
