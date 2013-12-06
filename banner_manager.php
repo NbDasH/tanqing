@@ -46,22 +46,22 @@
 	Banner1:
     <img src="img/b1.jpg?rand=<?php echo rand(); ?>" height="30" width="90" />
 	<input type="file" name="banner1">
-    url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[0]['link'] ?>">
+    链接:
+    <input type="text" name="banner_link[]" value="<?php echo $banner[0]['link'] ?>" class="input2">
     <br />
     Banner2:
     <img src="img/b2.jpg?rand=<?php echo rand(); ?>" height="30" width="90" />
     <input type="file" name="banner2">
-    url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[1]['link'] ?>">
+    链接:
+    <input type="text" name="banner_link[]" value="<?php echo $banner[1]['link'] ?>" class="input2">
     <br />
     Banner3:
     <img src="img/b3.jpg?rand=<?php echo rand(); ?>" height="30" width="90" />
     <input type="file" name="banner3">
-    url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[2]['link'] ?>">
+    链接:
+    <input type="text" name="banner_link[]" value="<?php echo $banner[2]['link'] ?>" class="input2">
     <br />
-    <input type="submit" value="提交">
+    <input type="submit" value="提交" class="btn_form btn_link">
 </form>
 
 <div class="description">

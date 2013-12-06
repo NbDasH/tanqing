@@ -43,7 +43,7 @@
 									if($imgsrc){
 									$imgPath = get_small($imgsrc);
 									 if(strlen($imgPath)>10){//如果路径长度太短，说明找不到图像 ?>
-                                    <img src="<?php echo $imgPath; ?>" class="img2" >
+                                    <div class="articleMainImg"><a href="show.php?id=<?php echo $v['c_id'];?>"><img src="<?php echo $imgPath; ?>" class="img2" ></a></div>
                                     <?php }} //if end ?>
                                     
                                     <ul class="tag">
@@ -68,3 +68,6 @@
 </div>
 
 <?php include('template/footer.php'); ?>
+<style>
+.article .articleMainImg{ height:200px; overflow:hidden; clear:both;} /*az:2013-12-7 解决溢出，以及一点点小图定位问题*/
+</style>

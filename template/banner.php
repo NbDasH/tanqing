@@ -16,3 +16,7 @@
         </ul>
     </div>
 </div>	
+<style>
+.banner .imgs{overflow:hidden; height:300px;}
+.banner .imgs img{ position:static;}
+</style>
