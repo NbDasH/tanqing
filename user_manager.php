@@ -42,6 +42,13 @@
 		
 		$err = get_err($data);
 		
+		//用户名存在验证
+		$db = new db;
+		$user = $db->select('users',array('user_name'=>$data['user_name']));
+		if(!empty($user)){
+			$err['user_name'] = "用户名已存在!";
+		}
+		
 		$password_confirm = $_POST['password_confirm'];
 		
 		if($data['user_password'] != $_POST['old_password'] && $password_confirm != $data['user_password']){
@@ -54,7 +61,6 @@
 			if($data['user_password'] != $_POST['old_password']){
 				$data['user_password'] = md5($data['user_password']);
 			}
-			$db = new db;
 			//区分新建或是修改
 			switch($_POST['event']){
 				case 'add':
@@ -81,19 +87,26 @@
 
 <form action="" method="post">
 	
-    <input class="input_addUser" type="text" name="user_name" value="<?php if(!empty($data)){echo $data['user_name'];} ?>" /><span><?php if(isset($err['user_name'])){echo $err['user_name'];} ?></span>用户名
+    <input class="input_addUser" type="text" name="user_name" value="<?php if(!empty($data)){echo $data['user_name'];} ?>" />
+    用户名
+    <span><?php if(isset($err['user_name'])){echo $err['user_name'];} ?></span>
     <br />
     
-    <input class="input_addUser" type="password" name="user_password" value="<?php if(!empty($data)){echo $data['user_password'];} ?>" />密码
+    <input class="input_addUser" type="password" name="user_password" value="<?php if(!empty($data)){echo $data['user_password'];} ?>" />
+    密码
     <span><?php if(isset($err['user_password'])){echo $err['user_password'];} ?></span>
     <br />
     
-    <input class="input_addUser" type="password" name="password_confirm" value="<?php if(isset($data['password_confirm'])){echo $data['password_confirm'];} ?>" /><span><?php if(isset($err['password_confirm'])){echo $err['password_confirm'];} ?></span>确认密码
+    <input class="input_addUser" type="password" name="password_confirm" value="<?php if(isset($data['password_confirm'])){echo $data['password_confirm'];} ?>" />
+    确认密码
+    <span><?php if(isset($err['password_confirm'])){echo $err['password_confirm'];} ?></span>
     <br />
     
-    <input class="input_addUser" type="text" name="user_nick_name" value="<?php if(!empty($data)){echo $data['user_nick_name'];} ?>" />昵称
+    <input class="input_addUser" type="text" name="user_nick_name" value="<?php if(!empty($data)){echo $data['user_nick_name'];} ?>" />
+    昵称
     <span><?php if(isset($err['user_nick_name'])){echo $err['user_nick_name'];} ?></span>
     <br />
+    
     <input class="input_addUser" type="hidden" name="event" value="<?php echo $event; ?>" />
     <input type="hidden" name="old_password" value="<?php if(!empty($data)){echo $data['old_password'];} ?>" />
     <input type="hidden" name="id" value="<?php if(!empty($data)){echo $data['id'];} ?>" />

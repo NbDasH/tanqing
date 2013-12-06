@@ -10,7 +10,6 @@
 		foreach($arr as $k => $v){
 			if(is_array($v)){
 				$data[addslashes($k)] = data_check($v);
-				
 			}else{
 				if($k == 'content'){
 					$data[addslashes($k)] = addslashes($v);
