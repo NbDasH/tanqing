@@ -60,25 +60,25 @@
     <img src="img/b1.jpg?rand=<?php echo rand(); ?>" width="90" />
 	<input type="file" name="banner[1]">
     url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[0]['link'] ?>">
+    <input type="text" name="banner_link[]" value="<?php echo $banner[0]['link'] ?>" class="input2">
     <br />
     Banner2:
     <img src="img/b2.jpg?rand=<?php echo rand(); ?>" width="90" />
     <input type="file" name="banner[2]">
     url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[1]['link'] ?>">
+    <input type="text" name="banner_link[]" value="<?php echo $banner[1]['link'] ?>" class="input2">
     <br />
     Banner3:
     <img src="img/b3.jpg?rand=<?php echo rand(); ?>"width="90" />
     <input type="file" name="banner[3]">
     url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[2]['link'] ?>">
+    <input type="text" name="banner_link[]" value="<?php echo $banner[2]['link'] ?>" class="input2">
     <br />
     ad:
     <img src="img/ad.jpg?rand=<?php echo rand(); ?>" width="90" />
     <input type="file" name="ad">
     url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[3]['link'] ?>">
+    <input type="text" name="banner_link[]" value="<?php echo $banner[3]['link'] ?>" class="input2">
     <br />
     <input type="submit" value="提交" class="btn_form btn_link">
 </form>
