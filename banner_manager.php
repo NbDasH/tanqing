@@ -80,7 +80,7 @@
     url:
     <input type="text" name="banner_link[]" value="<?php echo $banner[3]['link'] ?>">
     <br />
-    <input type="submit" value="提交">
+    <input type="submit" value="提交" class="btn_form btn_link">
 </form>
 
 <div class="description">

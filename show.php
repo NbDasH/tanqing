@@ -53,6 +53,9 @@
                 					<img src="img/t.png" class="img1">
                                     <h4><?php echo "<a href='show.php?id=".$content['c_id']."'>".$content['title']."</a>"; ?></h4>
                                     <h6>自： Yann 2013-11-25</h6>
+                                    
+                                    <div class="articleContent">
+                                    
                                     <?php
 									/*输出文章主图*/
 									$imgsrc = get_imgsrc($content['content']);
@@ -67,6 +70,8 @@
                                     ?>
                                     </ul>
                                     <p><?php echo show_content($content['content']); ?></p>
+                                    
+                                    </div><!--articleContent end-->
                 <li>
              </ul>
 
@@ -124,4 +129,7 @@
          <?php include('template/sidebar.php'); ?>
     </div><!--warp end-->
 </div><!--content end-->
+
+
+
 <?php include('template/footer.php'); ?>

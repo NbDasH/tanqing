@@ -6,8 +6,11 @@
      * User: taoqili
      * Date: 12-7-18
      * Time: 上午10:42
-     */
+    */
+	
+	/*az 2013-12-7 遇到了一个莫名其妙的问题，百度编辑器上传图片，按不了确定，结果，注释这行，问题解决
     header("Content-Type: text/html; charset=utf-8");
+	*/
     error_reporting(E_ERROR | E_WARNING);
     date_default_timezone_set("Asia/chongqing");
     include "Uploader.class.php";

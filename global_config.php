@@ -23,7 +23,7 @@
 <?php include('template/admin_nav.php'); ?>
 <div class="location">
 <!--如果没有登陆，不显示面包屑-->
-<a href="#">返回后台首页</a> >> <a href="user_list.php">Banner 修改</a><?php if(isset($_GET['event']))if($_GET['event']=='add')echo " >>  添加新成员";else echo " >>  编辑成员";?>
+<a href="#">返回后台首页</a> >> <a href="user_list.php">全局设置</a><?php if(isset($_GET['event']))if($_GET['event']=='add')echo " >>  添加新成员";else echo " >>  编辑成员";?>
 </div>
 <div class="content">
 
@@ -43,7 +43,7 @@
     </select>
     <br />
     页脚信息:
-    <input type="text" name="page_footer" value="<?php echo $CONFIG['page_footer']; ?>">
+    <input type="text" name="page_footer" value="<?php echo $CONFIG['page_footer']; ?>" class="input2">
     <br />
     右侧广告开关:
     <input type="checkbox" name="ad_visible" value="1" <?php if($CONFIG['ad_visible'] == 1){echo 'checked="checked"';} ?> />
@@ -53,8 +53,8 @@
     <br />
     是否验证评论:
     <input type="checkbox" name="message_validate" value="1" <?php if($CONFIG['message_validate'] == 1){echo 'checked="checked"';} ?> />
-    <br />
-    <input type="submit" value="提交">
+    <br /><br /><br />
+    <input type="submit" value="提交" class="btn_form btn_link" />
 </form>
 
 <div class="description">
