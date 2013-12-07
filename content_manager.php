@@ -74,7 +74,7 @@
 	<input type="text" name="title" value="<?php if(!empty($data)){echo $data['title'];} ?>" placeholder="标题" class="input" />
     <textarea name="content" id="myEditor"><?php if(!empty($data)){echo $data['content'];} ?></textarea>
     <script type="text/javascript">UE.getEditor('myEditor');</script>
-    <input type="text" name="key_words" value="<?php if(!empty($data)){echo $data['key_words'];} ?>" placeholder="标签1,标签2,..........." class="input" />
+    <input type="text" name="key_words" value="<?php if(!empty($data)){echo substr($data['key_words'],1,-1);} ?>" placeholder="标签1,标签2,..........." class="input" />
 	常用标签:
     <span class="key_words">
 	<?php

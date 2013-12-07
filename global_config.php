@@ -10,6 +10,7 @@
 		$data['page_footer'] = $_POST['page_footer'];
 		$data['ad_visible'] = isset($_POST['ad_visible']) ? 1 : 0;
 		$data['weibo_btn'] = isset($_POST['weibo_btn']) ? 1 : 0;
+		$data['message_validate'] = isset($_POST['message_validate']) ? 1 : 0;
 		foreach($data as $k => $v){
 			$db->update('global_config',array('config_value'=>$v),array('config_name'=>$k));
 		}
@@ -49,6 +50,9 @@
     <br />
     分享按钮开关:
     <input type="checkbox" name="weibo_btn" value="1" <?php if($CONFIG['weibo_btn'] == 1){echo 'checked="checked"';} ?> />
+    <br />
+    是否验证评论:
+    <input type="checkbox" name="message_validate" value="1" <?php if($CONFIG['message_validate'] == 1){echo 'checked="checked"';} ?> />
     <br />
     <input type="submit" value="提交">
 </form>

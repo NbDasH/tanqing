@@ -18,8 +18,12 @@ $key_words = $db->select('key_words',NULL,'order by weight desc limit 0,20');
             </div>
             
             <!--做一个开关，可以开启或关闭它-->
-            <?php if($CONFIG['ad_visible']==1){ ?>
-            <div class="ad"><img src="img/ad.jpg"></div>
+            <?php
+            	if($CONFIG['ad_visible']==1){
+					$b_db = new db;
+					$banners = $b_db->select('banners');
+			?>
+            <div class="ad"><a href="http://<?php echo $banners[3]['link']; ?>"><img src="img/ad.jpg"></a></div>
             <?php } ?>
             <div class="search">
             	<form action="../search.php" method="get">

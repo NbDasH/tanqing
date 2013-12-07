@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: 127.0.0.1
--- 生成日期: 2013-12-04 17:14:41
+-- 生成日期: 2013-12-07 10:48:47
 -- 服务器版本: 5.6.11
 -- PHP 版本: 5.5.3
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `banners` (
   `id` int(1) NOT NULL AUTO_INCREMENT,
   `link` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `banners`
@@ -40,8 +40,9 @@ CREATE TABLE IF NOT EXISTS `banners` (
 
 INSERT INTO `banners` (`id`, `link`) VALUES
 (1, 'dd32.com'),
-(2, '321'),
-(3, 'baidu.com');
+(2, 'tieba.com'),
+(3, 'baidu.com'),
+(4, 'asd.com');
 
 -- --------------------------------------------------------
 
@@ -57,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `contents` (
   `user_id` int(12) NOT NULL,
   `key_words` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -76,9 +77,10 @@ CREATE TABLE IF NOT EXISTS `global_config` (
 
 INSERT INTO `global_config` (`config_name`, `config_value`) VALUES
 ('page_limit', '5'),
-('page_footer', 'aaa2'),
-('ad_visible', '0'),
-('weibo_btn', '0');
+('page_footer', '版权信息 copyright'),
+('ad_visible', '1'),
+('weibo_btn', '1'),
+('message_validate', '0');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `key_words` (
   `key_word` varchar(50) NOT NULL,
   `weight` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -105,10 +107,12 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `message` varchar(11) NOT NULL,
   `user_id` int(12) DEFAULT NULL,
   `content_id` int(12) NOT NULL,
+  `validate` int(1) NOT NULL,
+  `parent_id` int(13) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `content_id` (`content_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -124,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_event` int(1) NOT NULL DEFAULT '1',
   `user_photo` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `users`

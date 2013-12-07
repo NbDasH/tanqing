@@ -3,9 +3,17 @@
 	
 	admin_validate();
 	
-	$db = new db;
-	$banner = $db->select('banners');
+	if(isset($_GET['event']) && $_GET['event'] == 'del'){
+		$id = $_GET['id'];
+		$db = new db;
+		$db->del('messages',array('id'=>$id));
+		jump('message_manager.php');
+	}
 	
+	$db = new db;
+	$messages = $db->select('messages',NULL,'where `parent_id` is null order by m_id desc','*,`messages`.id as m_id,`contents`.id as c_id',' left join contents on `messages`.content_id = `contents`.id');
+	
+	/*
 	if(!empty($_POST)){
 		$i = 1;
 		foreach($_FILES as $value){
@@ -32,37 +40,36 @@
 		jump('banner_manager.php');
 		
 	}
+	*/
 	
 ?>
 <?php include('template/admin_header.php'); ?>
 <?php include('template/admin_nav.php'); ?>
 <div class="location">
 <!--如果没有登陆，不显示面包屑-->
-<a href="#">返回后台首页</a> >> <a href="user_list.php">Banner 修改</a>
+<a href="#">返回后台首页</a> >> <a href="message_manager.php">留言管理</a>
 </div>
 <div class="content">
 
-<form action="" method="post" enctype="multipart/form-data">
-	Banner1:
-    <img src="img/b1.jpg?rand=<?php echo rand(); ?>" height="30" width="90" />
-	<input type="file" name="banner1">
-    url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[0]['link'] ?>">
-    <br />
-    Banner2:
-    <img src="img/b2.jpg?rand=<?php echo rand(); ?>" height="30" width="90" />
-    <input type="file" name="banner2">
-    url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[1]['link'] ?>">
-    <br />
-    Banner3:
-    <img src="img/b3.jpg?rand=<?php echo rand(); ?>" height="30" width="90" />
-    <input type="file" name="banner3">
-    url:
-    <input type="text" name="banner_link[]" value="<?php echo $banner[2]['link'] ?>">
-    <br />
-    <input type="submit" value="提交">
-</form>
+<table>
+	<tr>
+    	<td>序</td>
+        <td>留言内容</td>
+        <td>文章标题</td>
+        <td>操作</td>
+    </tr>
+    <?php foreach($messages as $v){ ?>
+    <tr>
+    	<td><?php echo $v['m_id']; ?></td>
+        <td><?php echo $v['message']; ?></td>
+        <td><a href="show.php?id=<?php echo $v['c_id']; ?>"><?php echo $v['title']; ?></a></td>
+        <td>
+        	<a href="message_manager.php?event=del&id=<?php echo $v['m_id']; ?>">删除</a>
+            <!--<a href="user_manager.php?event=edit&id=<?php echo $v['m_id']; ?>">修改</a>-->
+        </td>
+    </tr>
+    <?php } ?>
+</table>
 
 <div class="description">
 	<span class="redFont">*</span> 

@@ -10,7 +10,7 @@
             </ul>        
         </li>
         <li><a href="key_word_manager.php?event=list">标签管理</a></li>
-        <li><a href="#">评论管理</a></li>
+        <li><a href="message_manager.php">评论管理</a></li>
         <li><a href="user_list.php">成员管理</a></li>
         <li><a href="index.php" style="color:blue;">网站首页</a></li>
         <li><a href="logout.php" style="color:red;">退出管理</a></li>

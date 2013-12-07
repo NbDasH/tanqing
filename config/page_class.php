@@ -64,7 +64,11 @@
 			$next = '<span><a href="'.$this->get_page_url($this->page+1).'">下一页</a></span>';
 			$mid = '';
 			for($i=$this->page_start_nm;$i<= $this->page_end_nm;$i++){
-				$mid .= '<span><a href="'.$this->get_page_url($i).'">'.$i.'</a></span>';
+				if($i != $this->page){
+					$mid .= '<span><a href="'.$this->get_page_url($i).'">'.$i.'</a></span>';
+				}else{
+					$mid .= '<span class="grey">'.$i.'</span>';
+				}
 			}
 			
 			return $prev.$mid.$next;
