@@ -12,7 +12,7 @@ h5{ padding-bottom:15px; border-bottom:1px solid #ccc; margin-bottom:10px; font-
 
 /*表格样式*/
 table{ border-collapse:collapse; min-width:400px;}
-td{ padding:3px 10px;}
+td{ padding:5px 10px;}
 tr:nth-child(1) td{ background:#eee;}
 tr{ border-bottom:1px #eee solid;}
 tr:hover td:nth-child(1){ background:#FFC;}

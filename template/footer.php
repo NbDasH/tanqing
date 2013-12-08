@@ -11,6 +11,11 @@
 .footer a{ color:red;}
 .main{ min-height:700px;}
 
+
+/*侧栏元素*/
+.btn:hover{ background:#000; color:#fff; cursor:pointer;}
+.about h3:hover{background:#000; color:#fff; cursor:pointer;}
+
 </style>
 
 
@@ -18,3 +23,19 @@
 <script type="text/javascript"  src="cssjs/jquery-2.0.1.js"></script>
 <script type="text/javascript" src="cssjs/silder.js"></script>
 <script src="cssjs/bigImg.js"></script>
+
+<script>
+/*侧栏脚本*/
+			$(function(){
+				var val = '输入文章关键字';
+				$("#search").focus(function(){
+					if($(this).val()==val)
+						$(this).val('');				
+				})
+				
+				$("#search").blur(function(){
+					 if($(this).val() == "")
+						$(this).val(val);	
+				})
+			})
+</script>

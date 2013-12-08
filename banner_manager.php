@@ -55,27 +55,28 @@
 </div>
 <div class="content">
 
+<h5>Banner1</h5>
 <form action="" method="post" enctype="multipart/form-data">
-	Banner1:
-    <img src="img/b1.jpg?rand=<?php echo rand(); ?>" width="90" />
+	
+    <img src="img/b1.jpg?rand=<?php echo rand(); ?>" width="90" style="border:1px solid #eee;" />
 	<input type="file" name="banner[1]">
     url:
     <input type="text" name="banner_link[]" value="<?php echo $banner[0]['link'] ?>" class="input2">
     <br />
-    Banner2:
-    <img src="img/b2.jpg?rand=<?php echo rand(); ?>" width="90" />
+
+    <img src="img/b2.jpg?rand=<?php echo rand(); ?>" width="90"  style="border:1px solid #eee;"/>
     <input type="file" name="banner[2]">
     url:
     <input type="text" name="banner_link[]" value="<?php echo $banner[1]['link'] ?>" class="input2">
     <br />
-    Banner3:
-    <img src="img/b3.jpg?rand=<?php echo rand(); ?>"width="90" />
+
+    <img src="img/b3.jpg?rand=<?php echo rand(); ?>"width="90"  style="border:1px solid #eee;"/>
     <input type="file" name="banner[3]">
     url:
     <input type="text" name="banner_link[]" value="<?php echo $banner[2]['link'] ?>" class="input2">
-    <br />
-    ad:
-    <img src="img/ad.jpg?rand=<?php echo rand(); ?>" width="90" />
+    <br /><br /><br /><br />
+    <h5>侧栏广告(ad)</h5>
+    <img src="img/ad.jpg?rand=<?php echo rand(); ?>" width="90"  style="border:1px solid #eee;"/>
     <input type="file" name="ad">
     url:
     <input type="text" name="banner_link[]" value="<?php echo $banner[3]['link'] ?>" class="input2">

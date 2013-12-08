@@ -47,7 +47,7 @@
 <?php include('template/admin_nav.php'); ?>
 <div class="location">
 <!--如果没有登陆，不显示面包屑-->
-<a href="#">返回后台首页</a> >> <a href="message_manager.php">留言管理</a>
+<a href="#">返回后台首页</a> >> <a href="message_manager.php">评论管理</a>
 </div>
 <div class="content">
 
