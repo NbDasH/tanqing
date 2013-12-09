@@ -7,7 +7,7 @@
 		$user = $db->select('users',$data);
 		if(!empty($user)){
 			$_SESSION['user'] = $user[0];
-			jump('index.php');
+			jump('content_list.php');
 		}else{
 			//登陆失败后的信息
 			

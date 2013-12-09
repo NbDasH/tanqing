@@ -39,7 +39,7 @@
 
 <div class="description">
 	<span class="redFont">*</span> 
-	在添加标签的时候，空格也应该，能作为标签的分割符
+	我成功是因为我有决心，从不踌躇。——拿破仑
 </div><!--描述 end-->
 
 </div><!--content end-->

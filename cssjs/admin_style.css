@@ -4,7 +4,8 @@
 *{ padding:0; margin:0;  font-size:12px; text-decoration:none; font-family:Arial;}
 .header{ background:#000; color:white; line-height:80px;padding-left:20px;}
 a:hover{ color:red;}
-h1{ font-size:16px; }
+h1{ font-size:24px; }
+h1 a{font-size:24px; color:#eee;}
 
 /*子导航*/
 h5{ padding-bottom:15px; border-bottom:1px solid #ccc; margin-bottom:10px; font-weight:400}
@@ -29,7 +30,7 @@ tr:hover td:nth-child(1){ background:#FFC;}
 .nav  li:hover li{ display:block;}
 .nav li ul li{background:#eee;}
 .nav li ul li a:hover{ color:#333;}
-
+.nav .current{background:white; color:red;} 
 
 .location{
 	padding:40px 40px 0px;

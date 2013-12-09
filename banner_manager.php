@@ -86,7 +86,7 @@
 
 <div class="description">
 	<span class="redFont">*</span> 
-	说点什么
+	Banner建议大小是 910px X 300px， 而侧栏广告的大小建议使用宽度为 210px
 </div><!--描述 end-->
 </div><!--content end-->
 <?php include('template/admin_footer.php'); ?>
