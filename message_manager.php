@@ -11,6 +11,18 @@
 		jump('message_manager.php');
 	}
 	
+	if(isset($_GET['event']) && $_GET['event'] == 'validate_true'){
+		$id = $_GET['id'];
+		$db->update('messages',array('validate'=>1),array('id'=>$id));
+		jump('message_manager.php');
+	}
+	
+	if(isset($_GET['event']) && $_GET['event'] == 'validate_false'){
+		$id = $_GET['id'];
+		$db->update('messages',array('validate'=>0),array('id'=>$id));
+		jump('message_manager.php');
+	}
+	
 	if(!empty($_POST)){
 		if($_POST['event'] == 'edit'){
 			$id = $_POST['id'];
@@ -20,6 +32,7 @@
 		}else{
 			$data['message'] = $_POST['message'];
 			$data['parent_id'] = $_POST['parent_id'];
+			$data['time'] = time();
 			$data['validate'] = 1;
 			$db->insert('messages',$data);
 			jump('message_manager.php');
@@ -65,10 +78,14 @@
 			<?php	
 				}
 			?>
-        	
         </td>
         <td>
         	<a href="message_manager.php?event=del&id=<?php echo $v['m_id']; ?>">删除</a>
+            <?php if(!$v['validate']){ ?>
+            	<a href="message_manager.php?event=validate_true&id=<?php echo $v['m_id']; ?>">通过验证</a>
+            <?php }else{ ?>
+            	<a href="message_manager.php?event=validate_false&id=<?php echo $v['m_id']; ?>">取消验证</a>
+            <?php } ?>
         </td>
     </tr>
     <?php } ?>
@@ -82,6 +99,7 @@
 			var id = $(this).attr('data-msg_id');
 			var form = '<form action="" method="post"><input type="hidden" value="'+id+'" name="id" /><input type="hidden" value="edit" name="event" /><textarea name="message">'+data+'</textarea></form>';
 			$(this).parent().html(form);
+			$('textarea[name="message"]').focus();
 			$('textarea[name="message"]').on('blur',function(){
 				$(this).parent('form').submit();
 			});
@@ -91,9 +109,11 @@
 			var id = $(this).attr('data-msg_id');
 			var form = '<form action="" method="post"><input type="hidden" value="'+id+'" name="parent_id" /><input type="hidden" value="add" name="event" /><textarea name="message"></textarea></form>';
 			$(this).parent().html(form);
+			$('textarea[name="message"]').focus();
 			$('textarea[name="message"]').on('blur',function(){
 				$(this).parent('form').submit();
 			});
+			return false;
 		});
     });
 </script>

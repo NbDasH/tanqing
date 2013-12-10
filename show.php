@@ -8,20 +8,35 @@
 	}
 	
 	if(!empty($_POST)){
-		$data['message'] = $_POST['message'];
-		
-		//如果是登陆用户则保存用户ID
-		if(isset($_SESSION['user'])){
-			$data['user_id'] = $_SESSION['user']['id'];
+		if($_POST['event'] == 'new'){
+			$data['message'] = $_POST['message'];
+			
+			//如果是登陆用户则保存用户ID
+			if(isset($_SESSION['user'])){
+				//$data['user_id'] = $_SESSION['user']['id'];
+			}
+			
+			$data['time'] = time();
+			$data['content_id'] = $id;
+			
+			//增加全局配置留言过滤的开关
+			$data['validate'] = $CONFIG['message_validate'] ? 0 : 1;
+			
+			$db = new db;
+			$db->insert('messages',$data);
+			
+			jump("show.php?id=$id");
+			exit();
+		}else{
+			$data['message'] = $_POST['message'];
+			$data['time'] = time();
+			$data['parent_id'] = $_POST['parent_id'];
+			$data['validate'] = 1;
+			$db = new db;
+			$db->insert('messages',$data);
+			jump("show.php?id=$id");
+			exit();
 		}
-		
-		$data['time'] = time();
-		$data['content_id'] = $id;
-		$db = new db;
-		$db->insert('messages',$data);
-		
-		jump("show.php?id=$id");
-		exit();
 	}
 	
 	
@@ -32,7 +47,7 @@
 	
 	
 	//读取留言 -- 当前未查询用户全匿名评论
-	$messages = $db->select('messages',array('content_id'=>$id));
+	$messages = $db->select('messages',array('content_id'=>$id,'validate'=>1));
 	
 	
 ?>
@@ -81,7 +96,7 @@
     
 
  <div class="comment">
-    <h5>评论( 6条 )</h5>
+    <h5>评论( <?php echo count($messages); ?>条 )</h5>
     <ul>
     <?php foreach($messages as $v){ ?>
     <li>
@@ -95,6 +110,8 @@
         	<form action="" method="post">
                 <div><textarea name="message"></textarea></div>
                 <div><input type="submit" class="btn_link2" value="回复"></div>
+                <input type="hidden" value="<?php echo $v['id'] ?>" name="parent_id" />
+                <input type="hidden" name="event" value="reply" />
             </form>
        		</div><!--reply form end-->
   
@@ -103,6 +120,7 @@
     
     <h5>我要评论</h5>
     <form action="" method="post">
+    	<input type="hidden" name="event" value="new" />
     	<div><textarea name="message"></textarea></div>
     	<div><input type="submit" class="btn_link2"></div>
     </form>
