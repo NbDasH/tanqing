@@ -38,4 +38,10 @@
 						$(this).val(val);	
 				})
 			})
+			
+/*回复*/
+
+	$('.reply').click(function(){
+		$(this).next('.reply_form').slideDown(100);	
+	})
 </script>

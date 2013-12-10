@@ -20,8 +20,8 @@
 		$db = new db;
 		$db->insert('messages',$data);
 		
-		//jump("show.php?id=$id");
-		//exit();
+		jump("show.php?id=$id");
+		exit();
 	}
 	
 	
@@ -85,16 +85,16 @@
     <ul>
     <?php foreach($messages as $v){ ?>
     <li>
-        <h6><span>发表于<?php echo date('y-m-d H:i',$v['time']);?><span><?php echo $v['message'];?></h6> 
+        <h6><span>发表于<?php echo date('y-m-d H:i',$v['time']);?></span>游客:<?php echo substr($v['time'],0,-5);?></h6> 
         <?php echo $v['message'];?>
             <div class="reply">
-        	<a href="#">回复</a>
+        	回复
        		</div><!--reply end-->
        
          	<div class="reply_form">
         	<form action="" method="post">
                 <div><textarea name="message"></textarea></div>
-                <div><input type="submit" class="btn_link2"></div>
+                <div><input type="submit" class="btn_link2" value="回复"></div>
             </form>
        		</div><!--reply form end-->
   
@@ -110,7 +110,7 @@
  
  <style>
  .comment{ width:100%;}
- .comment h6{padding:5px;font-size:14px;font-weight:400;color:black;border-bottom:1px solid #eee;}
+ .comment h6{font-size:14px;font-weight:400;color:black;border-bottom:1px solid #eee; padding-bottom:5px;}
  .comment h6 span{ float:right; color:#ccc;}
  .comment h5{padding:5px; font-size:14px; font-weight:400; color:blue;}
  .comment li{ border-bottom:1px #eee dashed; padding:20px; min-height:50px; border:1px solid #eee; margin-bottom:10px;}
@@ -119,9 +119,9 @@
  .comment .btn_link2{ padding:3px 15px; border:1px solid #999; background:#eee; color:#000; margin-top:10px;}
  .comment .btn_link2:hover{ background:#fff; color:#f00; cursor:pointer; cursor:pointer;}
  .comment .reply_form{ display:none;}
- .comment .reply{color:#06C; text-align:right;}
+ .comment .reply{color:#06C; text-align:right; cursor:pointer;}
  .comment .reply span{ font-weight:800;}
- </style> 
+ </style>
     
     
 		 </div><!--left end-->
