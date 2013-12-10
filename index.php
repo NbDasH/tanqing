@@ -68,6 +68,3 @@
 </div>
 
 <?php include('template/footer.php'); ?>
-<style>
-.article .articleMainImg{ height:200px; overflow:hidden; clear:both;} /*az:2013-12-7 解决溢出，以及一点点小图定位问题*/
-</style>

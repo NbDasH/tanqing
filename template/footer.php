@@ -7,6 +7,17 @@
 
 
 <style>
+a:hover{ text-decoration:underline}
+
+.banner .imgs{overflow:hidden; height:299px;}
+.banner .imgs img{ position:static;}
+
+
+.article h4 a{ color:black;}
+.article h4 a:hover{ color:#900;}
+.article .articleMainImg{ height:200px; overflow:hidden; clear:both;} /*az:2013-12-7 解决溢出，以及一点点小图定位问题*/
+
+
 .footer{ height:100px; color:#ccc; padding-top:10px; margin-top:20px;}/*az:2013-12-7 客户要求脚部不要太高*/
 .footer a{ color:red;}
 .main{ min-height:700px;}
@@ -15,9 +26,10 @@
 /*侧栏元素*/
 .btn:hover{ background:#000; color:#fff; cursor:pointer;}
 .about h3:hover{background:#000; color:#fff; cursor:pointer;}
-.sidebar .ad{ height:auto;}
+.sidebar .ad{ height:auto; background:#FFF;}
 
 </style>
+
 
 
 
