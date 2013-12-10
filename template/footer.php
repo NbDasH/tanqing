@@ -15,6 +15,7 @@
 /*侧栏元素*/
 .btn:hover{ background:#000; color:#fff; cursor:pointer;}
 .about h3:hover{background:#000; color:#fff; cursor:pointer;}
+.sidebar .ad{ height:auto;}
 
 </style>
 
