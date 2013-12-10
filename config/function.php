@@ -180,7 +180,8 @@
 	
 	//得到当前页面名
 	function pageName(){
-	 	return end(explode('/',$_SERVER['PHP_SELF']));
+		$data = explode('/',$_SERVER['PHP_SELF']);
+	 	return end($data);
 	}
 	
 ?>

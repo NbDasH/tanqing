@@ -34,7 +34,7 @@ tr:hover td:nth-child(1){ background:#FFC;}
 
 .location{
 	padding:40px 40px 0px;
-	border:1px dash #ccc;	
+	border:1px dashed #ccc;	
 }
 
 .location a{ color:#999;}
