@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: 127.0.0.1
--- 生成日期: 2013-12-07 10:48:47
+-- 生成日期: 2013-12-11 15:45:49
 -- 服务器版本: 5.6.11
 -- PHP 版本: 5.5.3
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `contents` (
   `user_id` int(12) NOT NULL,
   `key_words` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `key_words` (
   `key_word` varchar(50) NOT NULL,
   `weight` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -106,13 +106,13 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `time` int(10) NOT NULL,
   `message` varchar(11) NOT NULL,
   `user_id` int(12) DEFAULT NULL,
-  `content_id` int(12) NOT NULL,
+  `content_id` int(12) DEFAULT NULL,
   `validate` int(1) NOT NULL,
   `parent_id` int(13) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `content_id` (`content_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
