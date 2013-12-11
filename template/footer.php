@@ -18,6 +18,26 @@ a:hover{ text-decoration:underline}
 .article .articleMainImg{ height:200px; overflow:hidden; clear:both;} /*az:2013-12-7 解决溢出，以及一点点小图定位问题*/
 
 
+ .comment{ width:100%;}
+ .comment h6{font-size:14px;font-weight:400;color:black;border-bottom:1px solid #eee; padding-bottom:5px;}
+ .comment h6 span{ float:right; color:#ccc;}
+ .comment h5{padding:5px; font-size:14px; font-weight:400; color:blue;}
+  .comment h5 span{color:#ccc;}
+ .comment li{ border-bottom:1px #eee dashed; padding:20px; min-height:50px; border:1px solid #eee; margin-bottom:10px;}
+ .comment textarea{ width:400px; height:50px; border:1px solid #ccc;}
+ 
+ .comment .btn_link2{ padding:3px 15px; border:1px solid #999; background:#eee; color:#000; margin-top:10px;}
+ .comment .btn_link2:hover{ background:#fff; color:#f00; cursor:pointer; cursor:pointer;}
+ .comment .reply_form{ display:none;}
+ .comment .reply{color:#06C; text-align:right; cursor:pointer;}
+ .comment .reply span{ font-weight:800;}
+ .comment .replyOver{ color:#C00;}
+ 
+ 
+ 
+ 
+
+
 .footer{ height:100px; color:#ccc; padding-top:10px; margin-top:20px;}/*az:2013-12-7 客户要求脚部不要太高*/
 .footer a{ color:red;}
 .main{ min-height:700px;}

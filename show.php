@@ -105,6 +105,10 @@
             <div class="reply">
         	回复
        		</div><!--reply end-->
+            
+            <div class="replyOver">
+            	回复：xxxxxxxxxxxx
+            </div>
        
          	<div class="reply_form">
         	<form action="" method="post">
@@ -118,7 +122,7 @@
     </li>
     <?php } ?>
     
-    <h5>我要评论</h5>
+    <h5>我要评论<span>(目录管理员已设置了评论内容审核机制，新提交的评论需要进行审核才会被显示)</span></h5>
     <form action="" method="post">
     	<input type="hidden" name="event" value="new" />
     	<div><textarea name="message"></textarea></div>
@@ -126,20 +130,7 @@
     </form>
  </div>
  
- <style>
- .comment{ width:100%;}
- .comment h6{font-size:14px;font-weight:400;color:black;border-bottom:1px solid #eee; padding-bottom:5px;}
- .comment h6 span{ float:right; color:#ccc;}
- .comment h5{padding:5px; font-size:14px; font-weight:400; color:blue;}
- .comment li{ border-bottom:1px #eee dashed; padding:20px; min-height:50px; border:1px solid #eee; margin-bottom:10px;}
- .comment textarea{ width:400px; height:50px; border:1px solid #ccc;}
- 
- .comment .btn_link2{ padding:3px 15px; border:1px solid #999; background:#eee; color:#000; margin-top:10px;}
- .comment .btn_link2:hover{ background:#fff; color:#f00; cursor:pointer; cursor:pointer;}
- .comment .reply_form{ display:none;}
- .comment .reply{color:#06C; text-align:right; cursor:pointer;}
- .comment .reply span{ font-weight:800;}
- </style>
+
     
     
 		 </div><!--left end-->
