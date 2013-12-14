@@ -32,10 +32,7 @@ a:hover{ text-decoration:underline}
  .comment .reply{color:#06C; text-align:right; cursor:pointer;}
  .comment .reply span{ font-weight:800;}
  .comment .replyOver{ color:#C00;}
- 
- 
- 
- 
+
 
 
 .footer{ height:100px; color:#ccc; padding-top:10px; margin-top:20px;}/*az:2013-12-7 客户要求脚部不要太高*/
@@ -47,6 +44,13 @@ a:hover{ text-decoration:underline}
 .btn:hover{ background:#000; color:#fff; cursor:pointer;}
 .about h3:hover{background:#000; color:#fff; cursor:pointer;}
 .sidebar .ad{ height:auto; background:#FFF;}
+
+
+@media screen and (max-width:1024px){
+	.banner .imgs{overflow:hidden; height:223px;}
+}
+
+
 
 </style>
 
