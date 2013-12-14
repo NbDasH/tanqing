@@ -81,7 +81,8 @@ h1{text-align:center; text-indent:-9999px; background:url(../img/logo.jpg); back
 .footer .warp p{ color:#b4b3b1; padding-top:33px; font-size:12px; padding-left:26px;}	
 
 
-@media screen and (max-width:1024px){
+/*原来是1024*/
+@media screen and (max-width:800px){
 	.sidebar{ width:680px; }
 	.ad{ display:none;}
 	.warp{width:680px; margin:0px auto;}
@@ -91,7 +92,7 @@ h1{text-align:center; text-indent:-9999px; background:url(../img/logo.jpg); back
 
 }
 
-@media screen and (max-width:680px){
+@media screen and (max-width:480px){
 	.header .warp{ position:relative;}
 	.sidebar{ width:100%; }
 	.main{width:100%;}

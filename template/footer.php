@@ -7,18 +7,19 @@
 
 
 <style>
+h1 { padding-top:10px;}
 a:hover{ text-decoration:underline}
 
 .banner .imgs{overflow:hidden; height:299px;}
 .banner .imgs img{ position:static;}
 
-
+.article h4{ font-family:"黑体"}
 .article h4 a{ color:black;}
 .article h4 a:hover{ color:#900;}
 .article .articleMainImg{ height:200px; overflow:hidden; clear:both;} /*az:2013-12-7 解决溢出，以及一点点小图定位问题*/
 
 
- .comment{ width:100%;}
+ .comment{ width:100%; clear:both;}
  .comment h6{font-size:14px;font-weight:400;color:black;border-bottom:1px solid #eee; padding-bottom:5px;}
  .comment h6 span{ float:right; color:#ccc;}
  .comment h5{padding:5px; font-size:14px; font-weight:400; color:blue;}
@@ -46,9 +47,18 @@ a:hover{ text-decoration:underline}
 .sidebar .ad{ height:auto; background:#FFF;}
 
 
-@media screen and (max-width:1024px){
+@media screen and (max-width:800px){
 	.banner .imgs{overflow:hidden; height:223px;}
+	.footer{ margin-top:10px;}
+	.main{ min-height:400px; margin-bottom:10px;}
 }
+
+@media screen and (max-width:480px){
+	.footer{ margin-top:0px;}
+}
+
+
+.bg{ cursor:pointer;}
 
 
 
