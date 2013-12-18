@@ -102,27 +102,44 @@
     <li>
         <h6><span>发表于<?php echo date('y-m-d H:i',$v['time']);?></span>游客:<?php echo substr($v['time'],0,-5);?></h6> 
         <?php echo $v['message'];?>
-            <div class="reply">
-        	回复
-       		</div><!--reply end-->
             
-            <div class="replyOver">
-            	回复：xxxxxxxxxxxx
-            </div>
+            <?php
+            	$parent_id = $v['id'];
+				$reply = $db->select('messages',array('parent_id'=>$parent_id));
+				
+				if(empty($reply)){
+			?>
+            
+                <div class="reply">
+                回复
+                </div><!--reply end-->
+                
+                <div class="reply_form">
+                <form action="" method="post">
+                    <div><textarea name="message"></textarea></div>
+                    <div><input type="submit" class="btn_link2" value="回复"></div>
+                    <input type="hidden" value="<?php echo $v['id'] ?>" name="parent_id" />
+                    <input type="hidden" name="event" value="reply" />
+                </form>
+                </div><!--reply form end-->
+            
+            <?php }else{ ?>
+            
+                <div class="replyOver">
+                    管理员回复：<?php echo $reply[0]['message']; ?>
+                </div>
        
-         	<div class="reply_form">
-        	<form action="" method="post">
-                <div><textarea name="message"></textarea></div>
-                <div><input type="submit" class="btn_link2" value="回复"></div>
-                <input type="hidden" value="<?php echo $v['id'] ?>" name="parent_id" />
-                <input type="hidden" name="event" value="reply" />
-            </form>
-       		</div><!--reply form end-->
+       		<?php } ?>
   
     </li>
     <?php } ?>
     
-    <h5>我要评论<span>(目录管理员已设置了评论内容审核机制，新提交的评论需要进行审核才会被显示)</span></h5>
+    <h5>
+        我要评论
+        <?php if($CONFIG['message_validate']){ ?>
+            <span>(目录管理员已设置了评论内容审核机制，新提交的评论需要进行审核才会被显示)</span>
+        <?php } ?>
+    </h5>
     <form action="" method="post">
     	<input type="hidden" name="event" value="new" />
     	<div><textarea name="message"></textarea></div>
