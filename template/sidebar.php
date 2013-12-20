@@ -22,9 +22,12 @@ $key_words = $db->select('key_words',NULL,'order by weight desc limit 0,20');
             	if($CONFIG['ad_visible']==1){
 					$b_db = new db;
 					$banners = $b_db->select('banners');
+					if(empty($banners[3]['link'])){
 			?>
-            <div class="ad"><a href="http://<?php echo $banners[3]['link']; ?>"><img src="img/ad.jpg"></a></div>
-            <?php } ?>
+            	<div class="ad"><img src="img/ad.jpg"></div>
+            <?php }else{ ?>
+            	<div class="ad"><a href="http://<?php echo $banners[3]['link']; ?>"><img src="img/ad.jpg"></a></div>
+			<?php }} ?>
             <div class="search">
             	<form action="../search.php" method="get">
                 	<input type="hidden" name="event" value="search" />

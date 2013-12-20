@@ -32,12 +32,12 @@
 		
 	}elseif($event == 'search'){
 		//分页
-		$all_nm =  $db->select('contents',NULL,'where `contents`.`content` LIKE "%'.$search.'%" or `contents`.`title` LIKE "%'.$search.'%" order by `contents`.`id` desc','count(id)');
+		$all_nm =  $db->select('contents',NULL,'where `contents`.`content` LIKE "%'.$search.'%" or `contents`.`title` LIKE "%,'.$search.',%" order by `contents`.`id` desc','count(id)');
 		$all_nm = $all_nm[0]['count(id)'];
 		$page = new page($all_nm,$limit,'search.php?event='.$event.'&search='.$search,$page);
 		
 		//数据获取
-		$contents = $db->select('contents',NULL,'where `contents`.`content` LIKE "%'.$search.'%" or `contents`.`title` LIKE "%'.$search.'%" order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
+		$contents = $db->select('contents',NULL,'where `contents`.`content` LIKE "%'.$search.'%" order by `contents`.`id` desc limit '.$page->get_limit_start().','.$limit,'*,`contents`.`id` as `c_id`',"left join `users` on `users`.`id` = `contents`.`user_id`");
 		//高亮
 		foreach($contents as $k => $v){
 			$contents[$k]['title'] = preg_replace('/('.$search.')/i','<span style="color:red">$1</span>',$v['title']);
